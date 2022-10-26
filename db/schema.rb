@@ -52,4 +52,12 @@ ActiveRecord::Schema.define(version: 2022_10_26_154940) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "lastName"
+    t.string "firstName"
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end

@@ -27,4 +27,4 @@
 /config/master.key
 
 # Ignore database credentials info
-/config/database.yml
+# /config/database.yml
