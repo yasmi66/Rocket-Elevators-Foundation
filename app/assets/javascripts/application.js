@@ -22,3 +22,8 @@ import 'stylesheets/application.css'
 // imports the revolution slider JS
 import 'jquery.themepunch.revolution.min'
 import 'jquery.themepunch.tools.min'
+
+//imports the JS for the quote form
+import 'form.esitmate.nbrelevator'
+import 'form.estimate.rates'
+import 'form.hide.show'

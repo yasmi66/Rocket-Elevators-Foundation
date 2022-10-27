@@ -19,3 +19,9 @@ Rails.application.config.assets.precompile += %w( bootstrap.js )
 Rails.application.config.assets.precompile += %w( jquery.themepunch.revolution.min.js )
 
 Rails.application.config.assets.precompile += %w( jquery.themepunch.tools.min.js )
+
+Rails.application.config.assets.precompile += %w( form.estimate.nbrelevator.js )
+
+Rails.application.config.assets.precompile +=%w( form.estimate.rates.js )
+
+Rails.application.config.assets.precompile +=%w( form.hide.show.js )
