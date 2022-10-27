@@ -14,3 +14,11 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+// imports the files for bootstrap
+import 'bootstrap'
+import 'stylesheets/application.css'
+
+// imports the revolution slider JS
+import 'jquery.themepunch.revolution.min'
+import 'jquery.themepunch.tools.min'
