@@ -10,11 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_26_154940) do
+ActiveRecord::Schema.define(version: 2022_10_27_180439) do
+
+  create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "lastName"
+    t.string "firstName"
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.integer "nbrAppBuild"
-    t.integer "NbrFloors"
+    t.integer "nbrFloors"
     t.integer "nbrBasementFloors"
     t.integer "nbrDisBui"
     t.integer "nbrParking"
@@ -23,41 +31,8 @@ ActiveRecord::Schema.define(version: 2022_10_26_154940) do
     t.integer "nbrActPerDay"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "technical_estimates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.integer "nbrElevatorRecommended"
-    t.integer "nbrUnitPrice"
-    t.integer "nbrPriceOfElevator"
-    t.integer "nbrCostOfInstallatin"
-    t.integer "nbrTotal"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "type_of_buildings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.boolean "residential"
-    t.boolean "commercial"
-    t.boolean "corporate"
-    t.boolean "hybrid"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "type_of_services", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.boolean "standard"
-    t.boolean "premium"
-    t.boolean "excelium"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.string "lastName"
-    t.string "firstName"
-    t.string "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "type_of_building"
+    t.string "type_of_service"
   end
 
 end

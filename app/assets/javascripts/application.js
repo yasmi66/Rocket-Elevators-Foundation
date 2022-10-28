@@ -14,3 +14,8 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+//imports the JS for the quote form
+import 'form.esitmate.nbrelevator'
+import 'form.estimate.rates'
+import 'form.hide.show'
