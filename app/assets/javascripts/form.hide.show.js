@@ -38,6 +38,12 @@ $(document).ready(function(){
             $("#corporateSelection").hide();
             $("#hybridSelection").hide();
         };
+
+        $(".formelementsRE").val(0)
+        $(".formelementsCOM").val(0)
+        $(".formelementsC").val(0)
+        $(".formelementsCH").val(0)
+
     })
 
 })

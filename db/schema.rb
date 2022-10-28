@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_27_180439) do
+ActiveRecord::Schema.define(version: 2022_10_26_152010) do
 
   create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "lastName"
@@ -21,18 +21,28 @@ ActiveRecord::Schema.define(version: 2022_10_27_180439) do
   end
 
   create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "buildingType"
     t.integer "nbrAppBuild"
-    t.integer "nbrFloors"
-    t.integer "nbrBasementFloors"
-    t.integer "nbrDisBui"
-    t.integer "nbrParking"
+    t.integer "nbrFloorsR"
+    t.integer "nbrFloorsC"
+    t.integer "nbrFloorsCor"
+    t.integer "nbrFloorsH"
+    t.integer "nbrBasementFloorsR"
+    t.integer "nbrBasementFloorsC"
+    t.integer "nbrBasementFloorsCor"
+    t.integer "nbrBasementFloorsH"
+    t.integer "nbrDisBuiCor"
+    t.integer "nbrDisBuiH"
+    t.integer "nbrParkingC"
+    t.integer "nbrParkingCor"
+    t.integer "nbrParkingH"
     t.integer "nbrElevatorCages"
-    t.integer "nbrOccPerFloor"
+    t.integer "nbrOccPerFloorCor"
+    t.integer "nbrOccPerFloorH"
     t.integer "nbrActPerDay"
+    t.string "serviceType"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "type_of_building"
-    t.string "type_of_service"
   end
 
 end

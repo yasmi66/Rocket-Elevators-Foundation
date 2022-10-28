@@ -6,33 +6,34 @@ class QuotesController < ApplicationController
     quote = Quote.new
     quote.nbrAppBuild = params[:nbrAppBuild]
 
-    if (params[:nbrFloorsR] != nil)
-      quote.nbrFloors = params[:nbrFloorsR]
-    elsif (params[:nbrFloorsC] != nil)
-      quote.nbrFloors = params[:nbrFloorsC]
-    elsif (params[:nbrFloorsCor] != nil)
-      quote.nbrFloors = params[:nbrFloorsCor]
-    elsif (params[:nbrFloorsH] != nil)
-      quote.nbrFloors = params[:nbrFloorsH]
-    end
+    quote.nbrFloorsR = params[:nbrFloorsR]
+    quote.nbrFloorsC = params[:nbrFloorsC]
+    quote.nbrFloorsCor = params[:nbrFloorsCor]
+    quote.nbrFloorsH = params[:nbrFloorsH]
 
-    if (params[:nbrBasementsFloorsR] != nil)
-      quote.nbrBasementFloors = params[:nbrBasementsFloorsR]
-    elsif (params[:nbrBasementsFloorsC] != nil)
-      quote.nbrBasementFloors = params[:nbrBasementsFloorsC]
-    elsif (params[:nbrBasementsFloorsCor] != nil)
-      quote.nbrBasementFloors = params[:nbrBasementsFloorsCor]
-    elsif (params[:nbrBasementsFloorsH] != nil)
-      quote.nbrBasementFloors = params[:nbrBasementsFloorsH]
-    end
 
-    quote.nbrDisBui = params[:nbrDisBui]
-    quote.nbrParking = params[:nbrParking]
+    quote.nbrDisBuiCor = params[:nbrDisBuiCor]
+    quote.nbrDisBuiH = params[:nbrDisBuiH]
+
+
+    quote.nbrBasementFloorsR = params[:nbrBasementsFloorsR]
+    quote.nbrBasementFloorsC = params[:nbrBasementsFloorsC]
+    quote.nbrBasementFloorsCor = params[:nbrBasementsFloorsCor]
+    quote.nbrBasementFloorsH = params[:nbrBasementsFloorsH]
+
+
+    quote.nbrParkingC = params[:nbrParkingC]
+
+    quote.nbrParkingCor = params[:nbrParkingCor]
+    quote.nbrParkingH = params[:nbrParkingsH]
+
+
     quote.nbrElevatorCages = params[:nbrElevatorCages]
-    quote.nbrOccPerFloor = params[:nbrOccPerFloor]
+    quote.nbrOccPerFloorCor = params[:nbrOccPerFloorCor]
+    quote.nbrOccPerFloorH = params[:nbrOccPerFloorH]
     quote.nbrActPerDay = params[:nbrActPerDay]
-    quote.type_of_building = params[:type_of_building]
-    quote.type_of_service = params[:type_of_service]
+    quote.buildingType = params[:type_of_building]
+    quote.serviceType = params[:type_of_service]
 
     quote.save
 
