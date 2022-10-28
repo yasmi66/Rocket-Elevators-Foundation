@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
 
     $("#residentialSelection").hide();
@@ -7,12 +8,12 @@ $(document).ready(function(){
 
     $(formBuilding).change(function(){
 
-    
         if ($(formBuilding).val() == 1) {
             $("#residentialSelection").show();
             $("#commercialSelection").hide();
             $("#corporateSelection").hide();
             $("#hybridSelection").hide();
+            $(".formelementsC").val();
         };
         if ($(formBuilding).val() == 2) {
             $("#residentialSelection").hide();
@@ -38,6 +39,12 @@ $(document).ready(function(){
             $("#corporateSelection").hide();
             $("#hybridSelection").hide();
         };
+
+        $(".formelementsRE").val(0)
+        $(".formelementsCOM").val(0)
+        $(".formelementsC").val(0)
+        $(".formelementsCH").val(0)
+
     })
 
 })
