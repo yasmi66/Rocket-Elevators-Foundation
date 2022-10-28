@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_26_154940) do
+ActiveRecord::Schema.define(version: 2022_10_26_155117) do
+
+  create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "lastName"
+    t.string "firstName"
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.integer "nbrAppBuild"
@@ -29,7 +44,7 @@ ActiveRecord::Schema.define(version: 2022_10_26_154940) do
     t.integer "nbrElevatorRecommended"
     t.integer "nbrUnitPrice"
     t.integer "nbrPriceOfElevator"
-    t.integer "nbrCostOfInstallatin"
+    t.integer "nbrCostOfInstallation"
     t.integer "nbrTotal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -48,14 +63,6 @@ ActiveRecord::Schema.define(version: 2022_10_26_154940) do
     t.boolean "standard"
     t.boolean "premium"
     t.boolean "excelium"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.string "lastName"
-    t.string "firstName"
-    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
