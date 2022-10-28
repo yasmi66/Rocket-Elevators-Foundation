@@ -1,2 +1,0 @@
-class TypeOfService < ApplicationRecord
-end

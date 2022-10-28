@@ -1,3 +1,4 @@
+
 //the line below is so the "alert" stays hidden initialy until its shown by the if statement in any of the functions bellow.
 $(document).ready(function(){
     $("#alertnegativenum").hide();
@@ -115,7 +116,6 @@ $(document).ready(function(){
         };
     }
 })
-
 
 
 

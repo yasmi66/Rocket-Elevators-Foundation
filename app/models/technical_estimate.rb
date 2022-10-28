@@ -1,2 +1,0 @@
-class TechnicalEstimate < ApplicationRecord
-end

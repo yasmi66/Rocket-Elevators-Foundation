@@ -1,2 +1,0 @@
-class TypeOfBuilding < ApplicationRecord
-end
