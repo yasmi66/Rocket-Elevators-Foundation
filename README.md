@@ -22,7 +22,7 @@ To check our databases and tables on the terminal you can go on the sql console 
 To display databases type `SHOW DATABASES;`, and `USE <database_name>;`
 
 Here is an example :
-![alt text](https://github.com/[mlouellette]/[Rocket_Elevators_Information_System]/blob/[main]/image.png?raw=true)
+![alt text](https://github.com/mlouellette/Rocket_Elevators_Information_System/blob/main/image.png?raw=true)
 
 
 
