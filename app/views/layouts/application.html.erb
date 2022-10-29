@@ -25,7 +25,7 @@
   <body>
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="/ideas">Ideas</a>
+        <a class="nav-link"></a>
       </li>
     </ul>
     <p class="navbar-text float-right">
@@ -38,7 +38,8 @@
       <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
     <% end %>
     </p>
-    <%= button_to "logout", destroy_user_session_path, method: :delete  %>
+    <div class="espace"</div>
+    <style> .espace{margin-top:60px}</style>
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
     <% end %>
