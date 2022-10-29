@@ -15,11 +15,11 @@ To ensure that everything is in order, you need to download ruby and rails versi
 
 First, we use a lot of gem pluggins, so you need to type `bundle install` to download packages. It might not work because of previous tries, so you can try `bundle update`. 
 
-Launch the server with : `rails s`or `rails server`
+Launch the server with : `rails s`or `rails server`.
 After that go on `http://localhost:3000/`to see the result.
 
-To check our databases and tables on the terminal you can go on the sql console with : `mysql -u root`
-To display databases type `SHOW DATABASES;`, and `USE <database_name>;`
+To check our databases and tables on the terminal you can go on the sql console with : `mysql -u root`.
+To display databases type `SHOW DATABASES;`, and `USE <database_name>;` and now you just need to display the table you want with : `DESCRIBE <table_name>`.
 
 Here is an example :
 ![alt text](https://github.com/mlouellette/Rocket_Elevators_Information_System/blob/main/image.png?raw=true)
