@@ -1,25 +1,12 @@
-# README
+# Rocket_Elevators_Information_System
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Description
+Rocket Elevators Website using the Ruby on rails framework. This website is connected to mysql database, user login and quote form connected. 
+The administrator of the page have access to a backoffice page that displays the employees section and quote form input results.
 
-Things you may want to cover:
+Using HTML / CSS / BOOTSTRAP / JAVASCRIPT / RUBY ON RAILS FRAMEWORK
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# Backup
