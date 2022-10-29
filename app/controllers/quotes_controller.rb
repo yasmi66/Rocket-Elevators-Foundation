@@ -11,16 +11,13 @@ class QuotesController < ApplicationController
     quote.nbrFloorsCor = params[:nbrFloorsCor]
     quote.nbrFloorsH = params[:nbrFloorsH]
 
-
-    quote.nbrDisBuiCor = params[:nbrDisBuiCor]
-    quote.nbrDisBuiH = params[:nbrDisBuiH]
-
-
     quote.nbrBasementFloorsR = params[:nbrBasementsFloorsR]
     quote.nbrBasementFloorsC = params[:nbrBasementsFloorsC]
     quote.nbrBasementFloorsCor = params[:nbrBasementsFloorsCor]
     quote.nbrBasementFloorsH = params[:nbrBasementsFloorsH]
 
+    quote.nbrDisBuiCor = params[:nbrDisBuiCor]
+    quote.nbrDisBuiH = params[:nbrDisBuiH]
 
     quote.nbrParkingC = params[:nbrParkingC]
 
