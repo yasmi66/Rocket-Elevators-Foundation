@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_27_192005) do
+ActiveRecord::Schema.define(version: 2022_11_01_151523) do
 
-  create_table "adress", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.integer "id", null: false
+  create_table "adresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "type_address", null: false
     t.string "status", null: false
     t.string "entity", null: false
@@ -23,6 +22,8 @@ ActiveRecord::Schema.define(version: 2022_10_27_192005) do
     t.string "postal_code", null: false
     t.string "country", null: false
     t.text "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
@@ -40,8 +41,7 @@ ActiveRecord::Schema.define(version: 2022_10_27_192005) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "leads", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.integer "id", null: false
+  create_table "leads", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "full_name_contact", limit: 99, null: false
     t.string "company_name", limit: 99, null: false
     t.string "email", limit: 99, null: false
@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(version: 2022_10_27_192005) do
     t.string "message"
     t.binary "attached_file", limit: 1
     t.date "date_contact_request", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
