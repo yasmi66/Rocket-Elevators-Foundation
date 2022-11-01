@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -12,9 +13,16 @@
 
 ActiveRecord::Schema.define(version: 2022_11_01_153912) do
 
-  create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.string "title"
-    t.text "body"
+  create_table "adresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "type_address", null: false
+    t.string "status", null: false
+    t.string "entity", null: false
+    t.string "number_and_street", null: false
+    t.string "suit_or_apartment"
+    t.string "city", null: false
+    t.string "postal_code", null: false
+    t.string "country", null: false
+    t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -48,6 +56,21 @@ ActiveRecord::Schema.define(version: 2022_11_01_153912) do
     t.string "lastName"
     t.string "firstName"
     t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "leads", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "full_name_contact", limit: 99, null: false
+    t.string "company_name", limit: 99, null: false
+    t.string "email", limit: 99, null: false
+    t.integer "phone", null: false
+    t.string "project_name", limit: 99, null: false
+    t.string "project_description", null: false
+    t.string "departement_in_charge", limit: 99, null: false
+    t.string "message"
+    t.binary "attached_file", limit: 1
+    t.date "date_contact_request", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -90,3 +113,4 @@ ActiveRecord::Schema.define(version: 2022_11_01_153912) do
   end
 
 end
+
