@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_01_153912) do
+ActiveRecord::Schema.define(version: 2022_11_01_150831) do
 
     create_table "batteries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.bigint "building_id"
@@ -74,6 +74,30 @@ ActiveRecord::Schema.define(version: 2022_11_01_153912) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "columns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.bigint "battery_id"
+    t.string "type"
+    t.integer "served_floors_nb"
+    t.string "status"
+    t.text "information"
+    t.text "notes"
+    t.index ["battery_id"], name: "index_columns_on_battery_id"
+  end
+
+  create_table "elevators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.bigint "column_id"
+    t.integer "serial_nb"
+    t.string "model"
+    t.string "type"
+    t.datetime "date_commissioning"
+    t.datetime "date_last_inspection"
+    t.string "certificate_inspection"
+    t.text "information"
+    t.text "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["column_id"], name: "index_elevators_on_column_id"
+  end
 
   create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "lastName"
