@@ -12,28 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2022_11_01_153912) do
 
-  create_table "adresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.string "type_address", null: false
-    t.string "status", null: false
-    t.string "entity", null: false
-    t.string "number_and_street", null: false
-    t.string "suit_or_apartment"
-    t.string "city", null: false
-    t.string "postal_code", null: false
-    t.string "country", null: false
-    t.text "notes"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.string "title"
-    t.text "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "batteries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    create_table "batteries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.bigint "building_id"
     t.bigint "employee_id"
     t.string "type"
@@ -57,6 +36,44 @@ ActiveRecord::Schema.define(version: 2022_11_01_153912) do
     t.datetime "updated_at", null: false
     t.index ["building_id"], name: "index_building_details_on_building_id"
   end
+
+  create_table "Building", primary_key: "CustomerID", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "AdressBuilding", limit: 50, null: false
+    t.string "FullNameBuildingAdmin", limit: 50, null: false
+    t.string "EmailAdminBuilding", limit: 100, null: false
+    t.string "PhoneNumberBuildingAdmin", limit: 50, null: false
+    t.string "FullNameTechContact", limit: 50, null: false
+    t.string "TechContactEmail", limit: 50, null: false
+    t.string "TechContactPhone", limit: 500, null: false
+  end
+
+  create_table "Customer", primary_key: "UserID", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "CustomerCreationDate", limit: 50, null: false
+    t.string "CompanyName", limit: 50, null: false
+    t.string "CompanyHeadquarterAdress", limit: 100, null: false
+    t.string "FullNameCompanyContact", limit: 50, null: false
+    t.string "CompanyContactPhone", limit: 50, null: false
+    t.string "EmailCompanyContact", limit: 50, null: false
+    t.string "CompanyDescription", limit: 500, null: false
+    t.string "FullNameServiceTechnicalAuth", limit: 50, null: false
+    t.string "TechnicalAuthorityPhoneService", limit: 50, null: false
+    t.string "TechnicalManagerEmailService", limit: 50, null: false
+  end
+
+  create_table "adresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "type_address", null: false
+    t.string "status", null: false
+    t.string "entity", null: false
+    t.string "number_and_street", null: false
+    t.string "suit_or_apartment"
+    t.string "city", null: false
+    t.string "postal_code", null: false
+    t.string "country", null: false
+    t.text "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 
   create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "lastName"
