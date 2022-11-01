@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
+  resources :tests
   devise_for :users
   resources :users
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'quotes/request_quote'
   post '/request_quote', to: 'quotes#create'
-  root "application#main-landing-page"
+  root "application#mainPage"
 
-  get 'main-landing-page', to: "application#main-landing-page", as: 'main'
-  get 'application/main-landing-page', to: "application#main-landing-page"
+  get 'mainPage', to: "application#main"
   get "/request-quote-page", to: "application#request-quote-page"
   get "/residential-services", to: "application#residential-services"
 
