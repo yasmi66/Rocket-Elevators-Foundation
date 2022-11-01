@@ -10,7 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_27_192005) do
+ActiveRecord::Schema.define(version: 2022_11_01_151309) do
+
+  create_table "Building", primary_key: "CustomerID", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "AdressBuilding", limit: 50, null: false
+    t.string "FullNameBuildingAdmin", limit: 50, null: false
+    t.string "EmailAdminBuilding", limit: 100, null: false
+    t.string "PhoneNumberBuildingAdmin", limit: 50, null: false
+    t.string "FullNameTechContact", limit: 50, null: false
+    t.string "TechContactEmail", limit: 50, null: false
+    t.string "TechContactPhone", limit: 500, null: false
+  end
+
+  create_table "Customer", primary_key: "UserID", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "CustomerCreationDate", limit: 50, null: false
+    t.string "CompanyName", limit: 50, null: false
+    t.string "CompanyHeadquarterAdress", limit: 100, null: false
+    t.string "FullNameCompanyContact", limit: 50, null: false
+    t.string "CompanyContactPhone", limit: 50, null: false
+    t.string "EmailCompanyContact", limit: 50, null: false
+    t.string "CompanyDescription", limit: 500, null: false
+    t.string "FullNameServiceTechnicalAuth", limit: 50, null: false
+    t.string "TechnicalAuthorityPhoneService", limit: 50, null: false
+    t.string "TechnicalManagerEmailService", limit: 50, null: false
+  end
 
   create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "title"
