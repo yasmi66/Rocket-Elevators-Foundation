@@ -7,6 +7,6 @@ class CreateBuildingDetails < ActiveRecord::Migration[5.2]
       t.string :value
       t.timestamps
     end
-    add_foreign_key :building_details, buildings
+    add_foreign_key :building_details, :buildings
   end
 end

@@ -8,6 +8,6 @@ class CreateColumns < ActiveRecord::Migration[5.2]
       t.text :information
       t.text :notes
     end
-    add_foreign_key :columns, batteries
+    add_foreign_key :columns, :batteries
   end
 end

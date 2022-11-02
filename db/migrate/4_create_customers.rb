@@ -2,7 +2,7 @@ class CreateCustomers < ActiveRecord::Migration[5.2]
   def change
     create_table :customers do |t|
       t.bigint :user_id
-      t.bigint :adress_id
+      t.bigint :address_id
       t.string "CustomerCreationDate", limit: 50, null: false
       t.string "CompanyName", limit: 50, null: false
       t.string "CompanyHeadquarterAdress", limit: 100, null: false
@@ -15,7 +15,7 @@ class CreateCustomers < ActiveRecord::Migration[5.2]
       t.string "TechnicalManagerEmailService", limit: 50, null: false
       t.timestamps
     end
-    add_foreign_key :customers, adresses
-    add_foreign_key :customers, users
+    add_foreign_key :customers, :addresses
+    add_foreign_key :customers, :users
   end
 end

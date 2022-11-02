@@ -12,6 +12,6 @@ class CreateElevators < ActiveRecord::Migration[5.2]
       t.text :notes
       t.timestamps
     end
-    add_foreign_key :elevators, columns
+    add_foreign_key :elevators, :columns
   end
 end
