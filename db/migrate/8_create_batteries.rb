@@ -4,7 +4,7 @@ class CreateBatteries < ActiveRecord::Migration[5.2]
       t.bigint :building_id
       t.bigint :employee_id
       t.belongs_to :employee
-      t.string :type
+      t.string :batteryType
       t.string :status
       t.datetime :date_commissioning
       t.datetime :date_last_inspection

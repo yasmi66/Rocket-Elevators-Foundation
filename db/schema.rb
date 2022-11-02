@@ -74,11 +74,8 @@ ActiveRecord::Schema.define(version: 2022_10_26_152010) do
     t.string "status"
     t.text "information"
     t.text "notes"
-<<<<<<< HEAD
-=======
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
->>>>>>> a9daeb9eabffb946a230306c886bb8b5d262cff4
     t.index ["battery_id"], name: "fk_rails_021eb14ac4"
   end
 
