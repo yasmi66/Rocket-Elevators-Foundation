@@ -10,14 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_01_150831) do
+ActiveRecord::Schema.define(version: 2022_11_01_155012) do
 
-    create_table "batteries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "type_address", null: false
+    t.string "status", null: false
+    t.string "entity", null: false
+    t.string "number_and_street", null: false
+    t.string "suit_or_apartment"
+    t.string "city", null: false
+    t.string "postal_code", null: false
+    t.string "country", null: false
+    t.text "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "batteries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.bigint "building_id"
     t.bigint "employee_id"
     t.string "type"
     t.string "status"
-    t.datetime "data_commissioning"
+    t.datetime "date_commissioning"
     t.datetime "date_last_inspection"
     t.string "certificate_operations"
     t.text "information"
@@ -37,7 +51,7 @@ ActiveRecord::Schema.define(version: 2022_11_01_150831) do
     t.index ["building_id"], name: "index_building_details_on_building_id"
   end
 
-  create_table "Building", primary_key: "CustomerID", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+  create_table "buildings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "AdressBuilding", limit: 50, null: false
     t.string "FullNameBuildingAdmin", limit: 50, null: false
     t.string "EmailAdminBuilding", limit: 100, null: false
@@ -45,31 +59,6 @@ ActiveRecord::Schema.define(version: 2022_11_01_150831) do
     t.string "FullNameTechContact", limit: 50, null: false
     t.string "TechContactEmail", limit: 50, null: false
     t.string "TechContactPhone", limit: 500, null: false
-  end
-
-  create_table "Customer", primary_key: "UserID", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.string "CustomerCreationDate", limit: 50, null: false
-    t.string "CompanyName", limit: 50, null: false
-    t.string "CompanyHeadquarterAdress", limit: 100, null: false
-    t.string "FullNameCompanyContact", limit: 50, null: false
-    t.string "CompanyContactPhone", limit: 50, null: false
-    t.string "EmailCompanyContact", limit: 50, null: false
-    t.string "CompanyDescription", limit: 500, null: false
-    t.string "FullNameServiceTechnicalAuth", limit: 50, null: false
-    t.string "TechnicalAuthorityPhoneService", limit: 50, null: false
-    t.string "TechnicalManagerEmailService", limit: 50, null: false
-  end
-
-  create_table "adresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.string "type_address", null: false
-    t.string "status", null: false
-    t.string "entity", null: false
-    t.string "number_and_street", null: false
-    t.string "suit_or_apartment"
-    t.string "city", null: false
-    t.string "postal_code", null: false
-    t.string "country", null: false
-    t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -82,6 +71,21 @@ ActiveRecord::Schema.define(version: 2022_11_01_150831) do
     t.text "information"
     t.text "notes"
     t.index ["battery_id"], name: "index_columns_on_battery_id"
+  end
+
+  create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "CustomerCreationDate", limit: 50, null: false
+    t.string "CompanyName", limit: 50, null: false
+    t.string "CompanyHeadquarterAdress", limit: 100, null: false
+    t.string "FullNameCompanyContact", limit: 50, null: false
+    t.string "CompanyContactPhone", limit: 50, null: false
+    t.string "EmailCompanyContact", limit: 50, null: false
+    t.string "CompanyDescription", limit: 500, null: false
+    t.string "FullNameServiceTechnicalAuth", limit: 50, null: false
+    t.string "TechnicalAuthorityPhoneService", limit: 50, null: false
+    t.string "TechnicalManagerEmailService", limit: 50, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "elevators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
