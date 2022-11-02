@@ -79,3 +79,8 @@ gem 'devise'
 gem 'rails_admin'
 
 gem 'jquery-rails'
+
+gem 'pg'
+
+gem 'faker'
+
