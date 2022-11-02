@@ -13,7 +13,7 @@ class CreateBatteries < ActiveRecord::Migration[5.2]
       t.text :notes
       t.timestamps
     end
-    add_foreign_key :batteries, buildings
-    add_foreign_key :batteries, employees
+    add_foreign_key :batteries, :buildings
+    add_foreign_key :batteries, :employees
   end
 end

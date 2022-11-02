@@ -82,5 +82,5 @@ gem 'jquery-rails'
 
 gem 'pg'
 
-gem 'faker'
+# gem 'faker'
 
