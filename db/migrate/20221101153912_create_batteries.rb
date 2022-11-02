@@ -1,7 +1,8 @@
 class CreateBatteries < ActiveRecord::Migration[5.2]
   def change
     create_table :batteries do |t|
-      t.belongs_to :building
+      t.bigint :building_id
+      t.bigint :employee_id
       t.belongs_to :employee
       t.string :type
       t.string :status
@@ -10,8 +11,9 @@ class CreateBatteries < ActiveRecord::Migration[5.2]
       t.string :certificate_operations
       t.text :information
       t.text :notes
-
       t.timestamps
     end
+    add_foreign_key :batteries, buildings
+    add_foreign_key :batteries, employees
   end
 end

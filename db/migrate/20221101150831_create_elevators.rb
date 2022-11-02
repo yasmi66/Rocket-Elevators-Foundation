@@ -1,7 +1,7 @@
 class CreateElevators < ActiveRecord::Migration[5.2]
   def change
     create_table :elevators do |t|
-      t.belongs_to :column
+      t.bigint :column_id
       t.integer :serial_nb
       t.string :model
       t.string :type
@@ -12,5 +12,6 @@ class CreateElevators < ActiveRecord::Migration[5.2]
       t.text :notes
       t.timestamps
     end
+    add_foreign_key :elevators, columns
   end
 end
