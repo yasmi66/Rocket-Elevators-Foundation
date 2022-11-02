@@ -11,7 +11,13 @@ class CreateLeads < ActiveRecord::Migration[5.2]
       t.string "message"
       t.binary "attached_file", limit: 1
       t.date "date_contact_request", null: false
+<<<<<<< HEAD
       t.timestamps
+=======
+      
+      t.timestamps
+
+>>>>>>> a9daeb9eabffb946a230306c886bb8b5d262cff4
     end
   end
 end
