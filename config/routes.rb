@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
-=======
   resources :quotes
   resources :leads
   resources :employees
@@ -11,7 +9,6 @@ Rails.application.routes.draw do
   resources :building_details
   resources :batteries
   resources :addresses
->>>>>>> a9daeb9eabffb946a230306c886bb8b5d262cff4
   devise_for :users
   resources :users
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

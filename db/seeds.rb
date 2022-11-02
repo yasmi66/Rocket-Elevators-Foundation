@@ -5,10 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-<<<<<<< HEAD
-
-=======
->>>>>>> a9daeb9eabffb946a230306c886bb8b5d262cff4
 require "faker"
 
 require 'json'
@@ -39,18 +35,10 @@ employees = Employee.create([
     {lastName: "Ai", firstName: "Eileen", title: "They really are"},
 ])
 
-<<<<<<< HEAD
-
-####### ------- Create Addresses ------- ##########
-
-
-addresses = Address.create(
-=======
 ####### ------- Create Addresses ------- ##########
 
 Address.destroy_all ([
   addresses = Address.create(
->>>>>>> a9daeb9eabffb946a230306c886bb8b5d262cff4
     type_address: address_type[rand(4)],
     status: address_status[rand(2)],
     entity: "entity",
@@ -60,11 +48,6 @@ Address.destroy_all ([
     postal_code: address['postalCode'],
     country: address["state"],
     notes: Faker::Lorem.paragraph,
-<<<<<<< HEAD
-)
-
-end
-=======
     )
    addresses.save
 
@@ -181,4 +164,3 @@ end
 
 
 
->>>>>>> a9daeb9eabffb946a230306c886bb8b5d262cff4
