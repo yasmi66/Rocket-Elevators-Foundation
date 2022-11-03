@@ -18,7 +18,7 @@ data_hash['addresses'].each do |address|
 
 address_type = ["HOME", "BUSINESS", "BILLING", "SHIPPING"]
 address_status = ["ACTIVE", "INACTIVE"]
-
+address_entity = ["RESIDENTIAL", "CORPORATE"]
 
 
 ####### ------- Create Employees ------- ##########
@@ -39,13 +39,20 @@ employees = Employee.create([
 ])
 
 
+user = User.create( 
+    email: Faker::Internet.email,
+    encrypted_password: Faker::Lorem.characters(number: 10),
+    reset_password_token: Faker::Lorem.characters(number: 10),
+  ) 
+
+
 ####### ------- Create Addresses ------- ##########
 
 
 addresses = Address.create(
     type_address: address_type[rand(4)],
     status: address_status[rand(2)],
-    entity: "entity",
+    entity: address_entity[rand(2)],
     number_and_street: address['address1'],
     suit_or_apartment: address['address2'],
     city: address['city'],
@@ -54,10 +61,11 @@ addresses = Address.create(
     notes: Faker::Lorem.paragraph,
 )
 
-
+end
 
 # 100.times do
 #     customer = Customer.create(
+#         user_id: user.id,
 #         CustomerCreationDate: Faker::Date.in_date_period,
 #         CompanyName: Faker::Company.name,
 #         FullNameCompanyContact: Faker::Name.name,
@@ -147,4 +155,4 @@ addresses = Address.create(
 
 # )
 
-end
+# end
