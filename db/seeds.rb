@@ -17,14 +17,15 @@ data_hash['addresses'].each do |address|
 
 address_type = ["HOME", "BUSINESS", "BILLING", "SHIPPING"]
 address_status = ["ACTIVE", "INACTIVE"]
+address_entity = ["RESIDENTIAL", "CORPORATE"]
 
-
+# PROBLEME ENTRER LES ID  DANS LES TABLES ET CUSTOMERS NE SEED PAS
 
 # 99.times do
 addresses = Address.create!(
     type_address: address_type[rand(4)],
     status: address_status[rand(2)],
-    entity: "entity",
+    entity: address_entity[rand(2)],
     number_and_street: address['address1'],
     suit_or_apartment: address['address2'],
     city: address['city'],
@@ -76,7 +77,7 @@ Building.destroy_all
     email2 = Faker::Internet.email
     phone2 = Faker::PhoneNumber.cell_phone
     building = Building.create(
-        AdressBuilding: full_address,
+        AddressBuilding: full_address,
         FullNameBuildingAdmin: name,
         EmailAdminBuilding: email,
         PhoneNumberBuildingAdmin: phone1,
@@ -123,7 +124,7 @@ Column.destroy_all
 99.times do
     columns = Column.create!(
         columnType: ['residential', 'commercial', 'corporate', 'hybrid'].sample,
-        served_floors_nb: Faker::Number.number(digits: 10),
+        served_floors_nb: Faker::Number.number(digits: 6),
         status: ["Active", "Inactive"].sample,
         information: Faker::Lorem.sentence,
         notes: Faker::Lorem.sentence
@@ -138,7 +139,7 @@ Elevator.destroy_all
 99.times do 
 
     elevators = Elevator.create!(
-        serial_nb: Faker::Number.number(digits: 10),
+        serial_nb: Faker::Number.number(digits: 6),
         model: Faker::Commerce.brand,
         elevatorType: Faker::Types.rb_string,
         date_commissioning: Faker::Date.in_date_period,
@@ -153,6 +154,7 @@ Elevator.destroy_all
 end
 ])
 
+Employee.destroy_all
 
 employees = Employee.create!([
     {lastName: "Houde", firstName: "Mathieu", title: "Gopher"},

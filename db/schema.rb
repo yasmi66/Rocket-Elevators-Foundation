@@ -13,14 +13,14 @@
 ActiveRecord::Schema.define(version: 2022_10_26_152010) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.string "type_address", null: false
-    t.string "status", null: false
-    t.string "entity", null: false
-    t.string "number_and_street", null: false
+    t.string "type_address"
+    t.string "status"
+    t.string "entity"
+    t.string "number_and_street"
     t.string "suit_or_apartment"
-    t.string "city", null: false
-    t.string "postal_code", null: false
-    t.string "country", null: false
+    t.string "city"
+    t.string "postal_code"
+    t.string "country"
     t.text "notes"
     t.bigint "customer_id"
     t.datetime "created_at", null: false
@@ -56,13 +56,13 @@ ActiveRecord::Schema.define(version: 2022_10_26_152010) do
   create_table "buildings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.bigint "customer_id"
     t.bigint "address_id"
-    t.string "AdressBuilding", limit: 50, null: false
-    t.string "FullNameBuildingAdmin", limit: 50, null: false
-    t.string "EmailAdminBuilding", limit: 100, null: false
-    t.string "PhoneNumberBuildingAdmin", limit: 50, null: false
-    t.string "FullNameTechContact", limit: 50, null: false
-    t.string "TechContactEmail", limit: 50, null: false
-    t.string "TechContactPhone", limit: 500, null: false
+    t.string "AddressBuilding"
+    t.string "FullNameBuildingAdmin"
+    t.string "EmailAdminBuilding"
+    t.string "PhoneNumberBuildingAdmin"
+    t.string "FullNameTechContact"
+    t.string "TechContactEmail"
+    t.string "TechContactPhone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["address_id"], name: "fk_rails_6dc7a885ab"
@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 2022_10_26_152010) do
     t.bigint "address_id"
     t.string "CustomerCreationDate", limit: 50, null: false
     t.string "CompanyName", limit: 50
-    t.string "CompanyHeadquarterAdress", limit: 100
+    t.string "CompanyHeadquarterAddress", limit: 100
     t.string "FullNameCompanyContact", limit: 50, null: false
     t.string "CompanyContactPhone", limit: 50, null: false
     t.string "EmailCompanyContact", limit: 50, null: false
@@ -149,8 +149,8 @@ ActiveRecord::Schema.define(version: 2022_10_26_152010) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
+    t.string "email", default: ""
+    t.string "encrypted_password", default: ""
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -161,7 +161,6 @@ ActiveRecord::Schema.define(version: 2022_10_26_152010) do
   end
 
   add_foreign_key "batteries", "buildings"
-  add_foreign_key "batteries", "employees"
   add_foreign_key "building_details", "buildings"
   add_foreign_key "buildings", "addresses"
   add_foreign_key "buildings", "customers"
