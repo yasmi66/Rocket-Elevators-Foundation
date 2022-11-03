@@ -1,0 +1,15 @@
+development:
+ adapter: postgresql
+ encoding: unicode
+ database: Rocket_Elevator_Information_System
+ pool: 5
+ username: "mlouellette"
+ password: "Iloverails1!!"
+
+ production:
+  adapter: postgresql
+  encoding: unicode
+  database: Rocket_Elevator_Information_System_production
+  pool: 5
+  username: "mlouellette"
+  password: "Iloverails1!"
