@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2022_10_26_152010) do
   create_table "batteries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.bigint "building_id"
     t.bigint "employee_id"
-    t.string "type"
+    t.string "batteryType"
     t.string "status"
     t.datetime "date_commissioning"
     t.datetime "date_last_inspection"
@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 2022_10_26_152010) do
     t.bigint "column_id"
     t.integer "serial_nb"
     t.string "model"
-    t.string "type"
+    t.string "elevatorType"
     t.datetime "date_commissioning"
     t.datetime "date_last_inspection"
     t.string "certificate_inspection"

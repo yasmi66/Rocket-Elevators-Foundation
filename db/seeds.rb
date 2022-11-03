@@ -18,27 +18,30 @@ data_hash['addresses'].each do |address|
 address_type = ["HOME", "BUSINESS", "BILLING", "SHIPPING"]
 address_status = ["ACTIVE", "INACTIVE"]
 
-Address.destroy_all ([
-    addresses = Address.create(
-      type_address: address_type[rand(4)],
-      status: address_status[rand(2)],
-      entity: "entity",
-      number_and_street: address['address1'],
-      suit_or_apartment: address['address2'],
-      city: address['city'],
-      postal_code: address['postalCode'],
-      country: address["state"],
-      notes: Faker::Lorem.paragraph,
-      )
-     addresses.save
+
+
+
+addresses = Address.create(
+    type_address: address_type[rand(4)],
+    status: address_status[rand(2)],
+    entity: "entity",
+    number_and_street: address['address1'],
+    suit_or_apartment: address['address2'],
+    city: address['city'],
+    postal_code: address['postalCode'],
+    country: address["state"],
+    notes: Faker::Lorem.paragraph
+    )
   
-  end
-  ])
+end
+
+    
 
 Customer.destroy_all
 ([
+
 100.times do
-    customer = Customer.new(
+    customer = Customer.create(
         CustomerCreationDate: Faker::Date.in_date_period,
         CompanyName: Faker::Company.name,
         FullNameCompanyContact: Faker::Name.name,
@@ -72,11 +75,11 @@ Building.destroy_all
     full_address = Faker::Address.full_address
     name = Faker::Name.name
     email = Faker::Internet.email
-    phone1 = Faker::PhoneNumber.cell_phone,
+    phone1 = Faker::PhoneNumber.cell_phone
     name2 = Faker::Name.name
     email2 = Faker::Internet.email
     phone2 = Faker::PhoneNumber.cell_phone
-    building = Building.new(
+    building = Building.create(
         AdressBuilding: full_address,
         FullNameBuildingAdmin: name,
         EmailAdminBuilding: email,
@@ -89,13 +92,13 @@ Building.destroy_all
 end
 ])
 
-Building_details.destroy_all
+BuildingDetail.destroy_all
 ([
 100.times do
-    building_details = Building_details.new(
+    building_details = BuildingDetail.create(
         
         information_key: Faker::Lorem.sentence,
-        value: Faker::Lorem.sentence,
+        value: Faker::Lorem.sentence
 
         )
         building_details.save
@@ -105,7 +108,7 @@ Building_details.destroy_all
 Battery.destroy_all
 ([
 100.times do
-    battery = Battery.new(
+    battery = Battery.create(
         batteryType: ["Residential", "Commercial", "Corporate", "Hybrid"].sample,
         status: ["Active", "Inactive"].sample,
         employee_id: Faker::Number.number(digits: 1),
@@ -116,28 +119,29 @@ Battery.destroy_all
         notes: Faker::Lorem.sentence
         )
         battery.save
-end
+    end
 ])
 
-Columns.destroy_all
+Column.destroy_all
 ([
 100.times do
-    columns = Columns.new(
+    columns = Columns.create(
         type: ['residential', 'commercial', 'corporate', 'hybrid'].sample,
         served_floors_nb: Fake::Number.number(digits: 10),
         status: ["Active", "Inactive"].sample,
         information: Faker::Lorem.sentence,
-        notes: Faker::Lorem.sentence,
+        notes: Faker::Lorem.sentence
 
         )
         columns.save
     end
 ])
 
-Elevator.destroy_all ([
+Elevator.destroy_all 
+([
 100.times do 
 
-    elevators = Elevator.new(
+    elevators = Elevator.create(
         serial_nb: Faker::Number.number(digits: 10),
         model: Faker::Commerce.brand,
         elevatorType: Faker::Types.rb_string,
@@ -145,7 +149,7 @@ Elevator.destroy_all ([
         date_last_inspection: Faker::Date.in_date_period,
         certificate_inspection: Faker::Commerce.brand,
         information: Faker::Company.catch_phrase,
-        notes: Faker::Quote.yoda,
+        notes: Faker::Quote.yoda
 
     )
     elevators.save
