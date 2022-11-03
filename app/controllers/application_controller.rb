@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
     def index
     end
 
-    def main
+    def mainPage
     end
 
 end
