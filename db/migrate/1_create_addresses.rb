@@ -10,7 +10,7 @@ class CreateAddresses < ActiveRecord::Migration[5.2]
       t.string "postal_code", null: false
       t.string "country", null: false
       t.text "notes"
-      
+      t.belongs_to :customer
       t.timestamps
     end
   end
