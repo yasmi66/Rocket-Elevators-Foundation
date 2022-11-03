@@ -5,7 +5,7 @@ class CreateCustomers < ActiveRecord::Migration[5.2]
       t.bigint :address_id
       t.string "CustomerCreationDate", limit: 50, null: false
       t.string "CompanyName", limit: 50
-      t.string "CompanyHeadquarterAdress", limit: 100
+      t.string "CompanyHeadquarterAddress", limit: 100
       t.string "FullNameCompanyContact", limit: 50, null: false
       t.string "CompanyContactPhone", limit: 50, null: false
       t.string "EmailCompanyContact", limit: 50, null: false
