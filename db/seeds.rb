@@ -23,6 +23,8 @@ address_status = ["ACTIVE", "INACTIVE"]
 
 ####### ------- Create Employees ------- ##########
 
+Employee.destroy_all
+
 employees = Employee.create([
     {lastName: "Houde", firstName: "Mathieu", title: "Gopher"},
     {lastName: "Thibault", firstName: "Patrick", title: "Maximalist"},
@@ -51,5 +53,98 @@ addresses = Address.create(
     country: address["state"],
     notes: Faker::Lorem.paragraph,
 )
+
+
+
+# 100.times do
+#     customer = Customer.create(
+#         CustomerCreationDate: Faker::Date.in_date_period,
+#         CompanyName: Faker::Company.name,
+#         FullNameCompanyContact: Faker::Name.name,
+#         CompanyContactPhone: Faker::PhoneNumber.cell_phone,
+#         EmailCompanyContact: Faker::Internet.email,
+#         CompanyDescription: Faker::Lorem.sentence,
+#         FullNameServiceTechnicalAuth: Faker::Name.name,
+#         TechnicalAuthorityPhoneService: Faker::PhoneNumber.cell_phone,
+#         TechnicalManagerEmailService: Faker::Internet.email
+#     )
+
+
+
+
+# 100.times do
+#     full_address = Faker::Address.full_address
+#     name = Faker::Name.name
+#     email = Faker::Internet.email
+#     phone1 = Faker::PhoneNumber.cell_phone,
+#     name2 = Faker::Name.name
+#     email2 = Faker::Internet.email
+#     phone2 = Faker::PhoneNumber.cell_phone
+#     building = Building.create(
+#         AdressBuilding: full_address,
+#         FullNameBuildingAdmin: name,
+#         EmailAdminBuilding: email,
+#         PhoneNumberBuildingAdmin: phone1,
+#         FullNameTechContact: name2,
+#         TechContactEmail: email2,
+#         TechContactPhone: phone2
+#     )
+
+
+
+
+# 100.times do
+#     building_details = Building_details.create(
+
+#         information_key: Faker::Lorem.sentence,
+#         value: Faker::Lorem.sentence,
+
+#     )
+# end
+
+
+# 100.times do
+#     battery = Battery.create(
+#         batteryType: ["Residential", "Commercial", "Corporate", "Hybrid"].sample,
+#         status: ["Active", "Inactive"].sample,
+#         employee_id: Faker::Number.number(digits: 1),
+#         date_commissioning: Faker::Date.in_date_period,
+#         date_last_inspection: Faker::Date.in_date_period,
+#         certificate_operations: Faker::Lorem.sentence,
+#         information: Faker::Lorem.sentence,
+#         notes: Faker::Lorem.sentence
+#     )
+
+
+
+
+
+# 100.times do
+#     columns = Columns.create(
+#         type: ['residential', 'commercial', 'corporate', 'hybrid'].sample,
+#         served_floors_nb: Fake::Number.number(digits: 10),
+#         status: ["Active", "Inactive"].sample,
+#         information: Faker::Lorem.sentence,
+#         notes: Faker::Lorem.sentence,
+
+#         )
+#         columns.save
+#     end
+
+
+
+# 100.times do
+
+#     elevators = Elevator.new(
+#         serial_nb: Faker::Number.number(digits: 10),
+#         model: Faker::Commerce.brand,
+#         elevatorType: Faker::Types.rb_string,
+#         date_commissioning: Faker::Date.in_date_period,
+#         date_last_inspection: Faker::Date.in_date_period,
+#         certificate_inspection: Faker::Commerce.brand,
+#         information: Faker::Company.catch_phrase,
+#         notes: Faker::Quote.yoda,
+
+# )
 
 end
