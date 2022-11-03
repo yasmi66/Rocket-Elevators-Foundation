@@ -22,8 +22,10 @@ ActiveRecord::Schema.define(version: 2022_10_26_152010) do
     t.string "postal_code", null: false
     t.string "country", null: false
     t.text "notes"
+    t.bigint "customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_addresses_on_customer_id"
   end
 
   create_table "batteries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
@@ -69,7 +71,7 @@ ActiveRecord::Schema.define(version: 2022_10_26_152010) do
 
   create_table "columns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.bigint "battery_id"
-    t.string "type"
+    t.string "columnType"
     t.integer "served_floors_nb"
     t.string "status"
     t.text "information"
@@ -83,8 +85,8 @@ ActiveRecord::Schema.define(version: 2022_10_26_152010) do
     t.bigint "user_id"
     t.bigint "address_id"
     t.string "CustomerCreationDate", limit: 50, null: false
-    t.string "CompanyName", limit: 50, null: false
-    t.string "CompanyHeadquarterAdress", limit: 100, null: false
+    t.string "CompanyName", limit: 50
+    t.string "CompanyHeadquarterAdress", limit: 100
     t.string "FullNameCompanyContact", limit: 50, null: false
     t.string "CompanyContactPhone", limit: 50, null: false
     t.string "EmailCompanyContact", limit: 50, null: false
@@ -94,8 +96,8 @@ ActiveRecord::Schema.define(version: 2022_10_26_152010) do
     t.string "TechnicalManagerEmailService", limit: 50, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["address_id"], name: "fk_rails_3f9404ba26"
-    t.index ["user_id"], name: "fk_rails_9917eeaf5d"
+    t.index ["address_id"], name: "index_customers_on_address_id"
+    t.index ["user_id"], name: "index_customers_on_user_id"
   end
 
   create_table "elevators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
@@ -117,21 +119,6 @@ ActiveRecord::Schema.define(version: 2022_10_26_152010) do
     t.string "lastName"
     t.string "firstName"
     t.string "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "leads", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.string "full_name_contact", limit: 99, null: false
-    t.string "company_name", limit: 99, null: false
-    t.string "email", limit: 99, null: false
-    t.integer "phone", null: false
-    t.string "project_name", limit: 99, null: false
-    t.string "project_description", null: false
-    t.string "departement_in_charge", limit: 99, null: false
-    t.string "message"
-    t.binary "attached_file", limit: 1
-    t.date "date_contact_request", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
