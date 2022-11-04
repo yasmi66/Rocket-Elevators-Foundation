@@ -1,4 +1,3 @@
-
 desc "Managing the pg database"
 task spec: ["pg:db:test:prepare"]
 
@@ -79,8 +78,4 @@ namespace :pg do
     ENV['SCHEMA'] = @original_config[:env_schema]
     Rails.application.config = @original_config[:config]
   end
-
-  task :quote_per_month do
-    # calculates how many quotes are submited per months
-    
 end
