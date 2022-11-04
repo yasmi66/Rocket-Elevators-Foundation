@@ -28,3 +28,4 @@
 
 # Ignore database credentials info
 /config/database.yml
+/config/database.postgres.yml
