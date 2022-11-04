@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2022_11_01_183122) do
 
-
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "type_address"
     t.string "status"
@@ -29,7 +28,7 @@ ActiveRecord::Schema.define(version: 2022_11_01_183122) do
     t.index ["customer_id"], name: "index_addresses_on_customer_id"
   end
 
-  create_table "batteries", force: :cascade do |t|
+  create_table "batteries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.bigint "building_id"
 
     t.string "battery_type"
@@ -43,18 +42,18 @@ ActiveRecord::Schema.define(version: 2022_11_01_183122) do
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-
   end
 
-  create_table "building_details", force: :cascade do |t|
+  create_table "building_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.bigint "building_id"
     t.string "information_key"
     t.string "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["building_id"], name: "fk_rails_51749f8eac"
   end
 
-  create_table "buildings", force: :cascade do |t|
+  create_table "buildings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.bigint "customer_id"
     t.bigint "address_id"
 
@@ -68,9 +67,11 @@ ActiveRecord::Schema.define(version: 2022_11_01_183122) do
     t.string "TechContactPhone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["address_id"], name: "fk_rails_6dc7a885ab"
+    t.index ["customer_id"], name: "fk_rails_c29cbe7fb8"
   end
 
-  create_table "columns", force: :cascade do |t|
+  create_table "columns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.bigint "battery_id"
 
     t.string "column_type"
@@ -84,7 +85,7 @@ ActiveRecord::Schema.define(version: 2022_11_01_183122) do
 
   end
 
-  create_table "customers", force: :cascade do |t|
+  create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.bigint "user_id"
 
     t.string "CustomerCreationDate", limit: 50, null: false
@@ -100,10 +101,9 @@ ActiveRecord::Schema.define(version: 2022_11_01_183122) do
     t.string "TechnicalManagerEmailService", limit: 50, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-
   end
 
-  create_table "elevators", force: :cascade do |t|
+  create_table "elevators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.bigint "column_id"
     t.integer "serial_nb"
     t.string "model"
@@ -117,10 +117,9 @@ ActiveRecord::Schema.define(version: 2022_11_01_183122) do
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-
   end
 
-  create_table "employees", force: :cascade do |t|
+  create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "lastName"
     t.string "firstName"
     t.string "title"
@@ -128,18 +127,17 @@ ActiveRecord::Schema.define(version: 2022_11_01_183122) do
     t.datetime "updated_at", null: false
   end
 
-
   create_table "leads", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.string "full_name_contact", limit: 99, null: false
-    t.string "company_name", limit: 99, null: false
-    t.string "email", limit: 99, null: false
-    t.integer "phone", null: false
-    t.string "project_name", limit: 99, null: false
-    t.string "project_description", null: false
-    t.string "departement_in_charge", limit: 99, null: false
-    t.string "message"
-    t.binary "attached_file", limit: 1
-    t.date "date_contact_request", null: false
+    t.string "contactName", limit: 99, null: false
+    t.string "contactBuisnessName", limit: 99, null: false
+    t.string "contactEmail", limit: 99, null: false
+    t.string "contactPhone", null: false
+    t.string "contactProject", limit: 99, null: false
+    t.string "project_description"
+    t.string "contactDepartement", limit: 99, null: false
+    t.string "contactMessage"
+    t.binary "contactAttachment", limit: 1
+    t.date "contactDate", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

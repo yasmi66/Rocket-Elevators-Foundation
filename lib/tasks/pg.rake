@@ -78,4 +78,5 @@ namespace :pg do
     ENV['SCHEMA'] = @original_config[:env_schema]
     Rails.application.config = @original_config[:config]
   end
+
 end
