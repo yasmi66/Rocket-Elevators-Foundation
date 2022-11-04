@@ -1,3 +1,4 @@
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -22,6 +23,18 @@ address_entity = ["RESIDENTIAL", "CORPORATE"]
 
 battery_type = ["Residential", "Commercial", "Corporate", "Hybrid"]
 
+####### ------- Create leads ------- ##########
+
+full_name_contact: Faker::Name.name,
+company_name: Faker::Company.name,
+email:  Faker::Internet.email,
+phone: Faker::PhoneNumber.cell_phone,
+project_name: Faker::Company.catch_phrase
+project_description: Faker::Lorem.sentence
+departement_in_charge: Faker::Lorem.sentence
+message: Faker::Lorem.sentence,
+attached_file: Faker::Lorem.sentence,
+date_contact_request: Faker::Date.in_date_period
 
 leads = Lead.create(
     full_name_contact: Faker::Name.name,
@@ -178,7 +191,5 @@ end
         {lastName: "Hartono", firstName: "Felicia", title: "Scrums are too early"},
         {lastName: "Ai", firstName: "Eileen", title: "They really are"},
     ])
-
-
 
 

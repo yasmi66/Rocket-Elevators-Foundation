@@ -1,5 +1,6 @@
 class LeadsController < ApplicationController
 
+
     require 'date'
     def create
         leads = Lead.new
@@ -21,4 +22,3 @@ class LeadsController < ApplicationController
         flash[:success] = "Request successfully sent!"
 
     end
-end
