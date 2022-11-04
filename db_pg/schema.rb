@@ -10,9 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2022_11_04_170412) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "dim_customers", force: :cascade do |t|
+    t.datetime "creation_date", null: false
+    t.string "compagny_name", null: false
+    t.string "full_name_contact", null: false
+    t.string "email", null: false
+    t.integer "nbElevator", null: false
+    t.string "city", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "fact_contacts", force: :cascade do |t|
+    t.bigint "contactId", null: false
+    t.datetime "creation_date", null: false
+    t.string "compagny_name", null: false
+    t.string "email", null: false
+    t.string "name_project", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "fact_elevators", force: :cascade do |t|
+    t.bigint "serial_number", null: false
+    t.datetime "date_commissioning", null: false
+    t.bigint "buildingId", null: false
+    t.bigint "customerId", null: false
+    t.string "city", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "fact_quotes", force: :cascade do |t|
+    t.bigint "quoteId", null: false
+    t.datetime "creation_date", null: false
+    t.string "compagny_name", null: false
+    t.string "email", null: false
+    t.integer "nbElevator", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
