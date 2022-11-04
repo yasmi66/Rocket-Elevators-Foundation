@@ -60,9 +60,11 @@
 
 			<!-- 
 				AVAILABLE HEADER CLASSES
+
 				Default nav height: 96px
 				.header-md 		= 70px nav height
 				.header-sm 		= 60px nav height
+
 				.b-0 		= remove bottom border (only with transparent use)
 				.transparent	= transparent header
 				.translucent	= translucent header
@@ -77,91 +79,24 @@
 				shadow-after-2 	= shadow 2 header bottom
 				shadow-before-3 = shadow 3 header top
 				shadow-after-3 	= shadow 3 header bottom
+
 				.clearfix		= required for mobile menu, do not remove!
+
 				Example Usage:  class="clearfix sticky header-sm transparent b-0"
 			-->
-			<div id="header" class="navbar-toggleable-md clearfix sticky">
-
-				<!-- TOP NAV -->
-				<header id="topNav">
-					<div class="container">
-
-						<!-- Mobile Menu Button -->
-						<button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
-							<i class="fa fa-bars"></i>
-						</button>
-
-						<!-- Logo -->
-						<a class="logo float-left scrollTo" href="#top">
-							<img src=R2.png alt="" />
-						</a>
-
-						<!-- 
-							Top Nav 
-							
-							AVAILABLE CLASSES:
-							submenu-dark = dark sub menu
-						-->
-						<div class="navbar-collapse collapse float-right nav-main-collapse submenu-dark">
-							<nav class="nav-main">
-
-								<!-- 
-									.nav-onepage
-									Required for onepage navigation links
-									
-									Add .external for an external link!
-								-->
-								<ul id="topMain" class="nav nav-pills nav-main nav-onepage">
-									<li class="active"><!-- HOME -->
-										<a href="main-landing-page.html">
-											HOME
-										</a>
-									</li>
-									<li><!-- SERVICES -->
-										<a href="main-landing-page.html#services">
-											SERVICES
-										</a>
-									</li>
-									<li><!-- PORTFOLIO -->
-										<a href="main-landing-page.html#portfolio">
-											PORTFOLIO
-										</a>
-									</li>
-									<li><!-- NEWS -->
-										<a href="main-landing-page.html#news">
-											NEWS
-										</a>
-									</li>
-									<li><!-- CLIENTS -->
-										<a href="main-landing-page.html#clients">
-											CLIENTS
-										</a>
-									</li>
-									<li><!-- CONTACT -->
-										<a href="#contact">
-											CONTACT
-										</a>
-									</li>
-								</ul>
-
-							</nav>
-						</div>	
-					</div>
-				</header>
-				<!-- /Top Nav -->
-
-			</div>
+			
 
 
 			<!-- 
 				PAGE HEADER 
-
+				
 				CLASSES:
 					.page-header-xs	= 20px margins
 					.page-header-md	= 50px margins
 					.page-header-lg	= 80px margins
 					.page-header-xlg= 130px margins
 					.dark			= dark page header
+
 					.shadow-before-1 	= shadow 1 header top
 					.shadow-after-1 	= shadow 1 header bottom
 					.shadow-before-2 	= shadow 2 header top
@@ -169,6 +104,9 @@
 					.shadow-before-3 	= shadow 3 header top
 					.shadow-after-3 	= shadow 3 header bottom
 			-->
+
+			<%= render "navbar" %>
+
 			<section class="page-header">
 				<div class="container">
 
@@ -346,9 +284,6 @@
                                     </div>
                                 </div>
                             </div>
-
-
-
 						<!-- /Fancy Elements -->
 
 
@@ -393,30 +328,17 @@
 							</div>
 						</div>
 						<!-- results -->
+					</div>
+				</div>
 
-						</div>
-
+					<div class="card card-default">
+						<input type="submit" class=" btn btn-primary" value="Submit">
 					</div>
 
-
-				</div>
-                <div >
-                    <input id="Btn-center" type="submit" class=" btn btn-shadow-1 btn-outline-dark text-white" value="Submit">
-                </div>
-			</section>
-
-
+				</section>
             <% end %>
-			<!-- /Form -->
 
-
-			<!-- CONTACT -->
-
-			<!-- /CONTACT -->
-
-
-			<!-- FOOTER -->
-			<!-- /FOOTER -->
+			<%= render "footer" %>
 
 		</div>
 		<!-- /wrapper -->
@@ -446,6 +368,26 @@
 		<script src="assets/plugins/gmaps.js"></script>
 		<script>
 
+			jQuery(document).ready(function(){
+
+				/**
+					@BASIC GOOGLE MAP
+				**/
+				var map2 = new GMaps({
+					div: '#map2',
+					class: "GMaps",
+					lat: 45.46149,
+					lng: -73.56701,
+					scrollwheel: false
+				});
+
+				var marker = map2.addMarker({
+					lat: 45.46149,
+					lng: -73.56701,
+					title: 'ROCKET ELEVATOR Inc.'
+				});
+
+			});
 
 		</script>
 
