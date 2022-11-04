@@ -4,7 +4,7 @@ class CreateElevators < ActiveRecord::Migration[5.2]
       t.bigint :column_id
       t.integer :serial_nb
       t.string :model
-      t.string :elevatorType
+      t.string :elevator_type
       t.datetime :date_commissioning
       t.datetime :date_last_inspection
       t.string :certificate_inspection
@@ -12,6 +12,5 @@ class CreateElevators < ActiveRecord::Migration[5.2]
       t.text :notes
       t.timestamps
     end
-    add_foreign_key :elevators, :columns
   end
 end
