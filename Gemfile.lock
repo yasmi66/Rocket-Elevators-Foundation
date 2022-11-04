@@ -1,3 +1,4 @@
+
 GIT
   remote: https://github.com/faker-ruby/faker.git
   revision: c65641266132868410e80336ede27f87f14829ef
@@ -364,3 +365,4 @@ RUBY VERSION
 
 BUNDLED WITH
    2.3.24
+
