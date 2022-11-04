@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2022_11_01_183122) do
 
+<<<<<<< HEAD
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,13 +21,22 @@ ActiveRecord::Schema.define(version: 2022_11_01_183122) do
     t.string "status", null: false
     t.string "entity", null: false
     t.string "number_and_street", null: false
+=======
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "type_address"
+    t.string "status"
+    t.string "entity"
+    t.string "number_and_street"
+>>>>>>> main
     t.string "suit_or_apartment"
-    t.string "city", null: false
-    t.string "postal_code", null: false
-    t.string "country", null: false
+    t.string "city"
+    t.string "postal_code"
+    t.string "country"
     t.text "notes"
+    t.bigint "customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_addresses_on_customer_id"
   end
 
   create_table "batteries", force: :cascade do |t|
@@ -55,20 +65,20 @@ ActiveRecord::Schema.define(version: 2022_11_01_183122) do
   create_table "buildings", force: :cascade do |t|
     t.bigint "customer_id"
     t.bigint "address_id"
-    t.string "AdressBuilding", limit: 50, null: false
-    t.string "FullNameBuildingAdmin", limit: 50, null: false
-    t.string "EmailAdminBuilding", limit: 100, null: false
-    t.string "PhoneNumberBuildingAdmin", limit: 50, null: false
-    t.string "FullNameTechContact", limit: 50, null: false
-    t.string "TechContactEmail", limit: 50, null: false
-    t.string "TechContactPhone", limit: 500, null: false
+    t.string "AddressBuilding"
+    t.string "FullNameBuildingAdmin"
+    t.string "EmailAdminBuilding"
+    t.string "PhoneNumberBuildingAdmin"
+    t.string "FullNameTechContact"
+    t.string "TechContactEmail"
+    t.string "TechContactPhone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "columns", force: :cascade do |t|
     t.bigint "battery_id"
-    t.string "type"
+    t.string "columnType"
     t.integer "served_floors_nb"
     t.string "status"
     t.text "information"
@@ -81,8 +91,8 @@ ActiveRecord::Schema.define(version: 2022_11_01_183122) do
     t.bigint "user_id"
     t.bigint "address_id"
     t.string "CustomerCreationDate", limit: 50, null: false
-    t.string "CompanyName", limit: 50, null: false
-    t.string "CompanyHeadquarterAdress", limit: 100, null: false
+    t.string "CompanyName", limit: 50
+    t.string "CompanyHeadquarterAddress", limit: 100
     t.string "FullNameCompanyContact", limit: 50, null: false
     t.string "CompanyContactPhone", limit: 50, null: false
     t.string "EmailCompanyContact", limit: 50, null: false
@@ -92,6 +102,11 @@ ActiveRecord::Schema.define(version: 2022_11_01_183122) do
     t.string "TechnicalManagerEmailService", limit: 50, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+<<<<<<< HEAD
+=======
+    t.index ["address_id"], name: "index_customers_on_address_id"
+    t.index ["user_id"], name: "index_customers_on_user_id"
+>>>>>>> main
   end
 
   create_table "elevators", force: :cascade do |t|
@@ -116,6 +131,7 @@ ActiveRecord::Schema.define(version: 2022_11_01_183122) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
   create_table "leads", force: :cascade do |t|
     t.string "contactName", limit: 99, null: false
     t.string "contactBuisnessName", limit: 99, null: false
@@ -132,6 +148,9 @@ ActiveRecord::Schema.define(version: 2022_11_01_183122) do
   end
 
   create_table "quotes", force: :cascade do |t|
+=======
+  create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+>>>>>>> main
     t.string "buildingType"
     t.integer "nbrAppBuild"
     t.integer "nbrFloorsR"
@@ -156,6 +175,7 @@ ActiveRecord::Schema.define(version: 2022_11_01_183122) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
   create_table "tests", force: :cascade do |t|
     t.string "col_a"
     t.string "col_b"
@@ -166,6 +186,11 @@ ActiveRecord::Schema.define(version: 2022_11_01_183122) do
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+=======
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "email", default: ""
+    t.string "encrypted_password", default: ""
+>>>>>>> main
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -176,7 +201,6 @@ ActiveRecord::Schema.define(version: 2022_11_01_183122) do
   end
 
   add_foreign_key "batteries", "buildings"
-  add_foreign_key "batteries", "employees"
   add_foreign_key "building_details", "buildings"
   add_foreign_key "buildings", "addresses"
   add_foreign_key "buildings", "customers"

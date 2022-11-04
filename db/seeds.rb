@@ -17,14 +17,15 @@ data_hash['addresses'].each do |address|
 
 address_type = ["HOME", "BUSINESS", "BILLING", "SHIPPING"]
 address_status = ["ACTIVE", "INACTIVE"]
+address_entity = ["RESIDENTIAL", "CORPORATE"]
 
+# PROBLEME ENTRER LES ID  DANS LES TABLES ET CUSTOMERS NE SEED PAS
 
-
-
-addresses = Address.create(
+# 99.times do
+addresses = Address.create!(
     type_address: address_type[rand(4)],
     status: address_status[rand(2)],
-    entity: "entity",
+    entity: address_entity[rand(2)],
     number_and_street: address['address1'],
     suit_or_apartment: address['address2'],
     city: address['city'],
@@ -34,14 +35,23 @@ addresses = Address.create(
     )
   
 end
-
-    
+# end
+99.times do
+user = User.create!(
+    # title: Faker::Name.unique.last_name,
+    # first_name: Faker::Name.unique.first_name,
+    # last_name: Faker::Name.unique.last_name,
+    email: Faker::Internet.unique.email,
+    password: Faker::Internet.unique.password
+)
+user.save   
+end 
 
 Customer.destroy_all
 ([
 
-100.times do
-    customer = Customer.create(
+99.times do
+    customer = Customer.create!(
         CustomerCreationDate: Faker::Date.in_date_period,
         CompanyName: Faker::Company.name,
         FullNameCompanyContact: Faker::Name.name,
@@ -54,24 +64,11 @@ Customer.destroy_all
         )
         customer.save
     end
-])
-
-employees = Employee.create([
-    {lastName: "Houde", firstName: "Mathieu", title: "Gopher"},
-    {lastName: "Thibault", firstName: "Patrick", title: "Maximalist"},
-    {lastName: "Patry-Jessop", firstName: "Francis", title: "Captain"},
-    {lastName: "Amyot", firstName: "David", title: "The Man"},
-    {lastName: "Goupil", firstName: "Marie-Ève", title: "Al Master"},
-    {lastName: "Boivin", firstName: "François", title: "The Tank"},
-    {lastName: "Wever", firstName: "Timothy", title: "Beard whisperer"},
-    {lastName: "Kleinerman", firstName: "Kiril", title: "I <3 Winnipeg"},
-    {lastName: "Hartono", firstName: "Felicia", title: "Scrums are too early"},
-    {lastName: "Ai", firstName: "Eileen", title: "They really are"},
-])
-
+    ])
+    
 Building.destroy_all
 ([
-100.times do
+99.times do
     full_address = Faker::Address.full_address
     name = Faker::Name.name
     email = Faker::Internet.email
@@ -80,7 +77,7 @@ Building.destroy_all
     email2 = Faker::Internet.email
     phone2 = Faker::PhoneNumber.cell_phone
     building = Building.create(
-        AdressBuilding: full_address,
+        AddressBuilding: full_address,
         FullNameBuildingAdmin: name,
         EmailAdminBuilding: email,
         PhoneNumberBuildingAdmin: phone1,
@@ -94,7 +91,7 @@ end
 
 BuildingDetail.destroy_all
 ([
-100.times do
+99.times do
     building_details = BuildingDetail.create(
         
         information_key: Faker::Lorem.sentence,
@@ -107,8 +104,8 @@ BuildingDetail.destroy_all
 
 Battery.destroy_all
 ([
-100.times do
-    battery = Battery.create(
+99.times do
+    battery = Battery.create!(
         batteryType: ["Residential", "Commercial", "Corporate", "Hybrid"].sample,
         status: ["Active", "Inactive"].sample,
         employee_id: Faker::Number.number(digits: 1),
@@ -124,10 +121,10 @@ Battery.destroy_all
 
 Column.destroy_all
 ([
-100.times do
-    columns = Columns.create(
-        type: ['residential', 'commercial', 'corporate', 'hybrid'].sample,
-        served_floors_nb: Fake::Number.number(digits: 10),
+99.times do
+    columns = Column.create!(
+        columnType: ['residential', 'commercial', 'corporate', 'hybrid'].sample,
+        served_floors_nb: Faker::Number.number(digits: 6),
         status: ["Active", "Inactive"].sample,
         information: Faker::Lorem.sentence,
         notes: Faker::Lorem.sentence
@@ -139,10 +136,10 @@ Column.destroy_all
 
 Elevator.destroy_all 
 ([
-100.times do 
+99.times do 
 
-    elevators = Elevator.create(
-        serial_nb: Faker::Number.number(digits: 10),
+    elevators = Elevator.create!(
+        serial_nb: Faker::Number.number(digits: 6),
         model: Faker::Commerce.brand,
         elevatorType: Faker::Types.rb_string,
         date_commissioning: Faker::Date.in_date_period,
@@ -157,8 +154,20 @@ Elevator.destroy_all
 end
 ])
 
+Employee.destroy_all
 
-
+employees = Employee.create!([
+    {lastName: "Houde", firstName: "Mathieu", title: "Gopher"},
+    {lastName: "Thibault", firstName: "Patrick", title: "Maximalist"},
+    {lastName: "Patry-Jessop", firstName: "Francis", title: "Captain"},
+    {lastName: "Amyot", firstName: "David", title: "The Man"},
+    {lastName: "Goupil", firstName: "Marie-Ève", title: "Al Master"},
+    {lastName: "Boivin", firstName: "François", title: "The Tank"},
+    {lastName: "Wever", firstName: "Timothy", title: "Beard whisperer"},
+    {lastName: "Kleinerman", firstName: "Kiril", title: "I <3 Winnipeg"},
+    {lastName: "Hartono", firstName: "Felicia", title: "Scrums are too early"},
+    {lastName: "Ai", firstName: "Eileen", title: "They really are"},
+])
 
 
 
