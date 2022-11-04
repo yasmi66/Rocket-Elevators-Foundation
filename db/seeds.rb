@@ -151,22 +151,39 @@ addresses = Address.create(
     )
 
 end
+    ####### ------- Create Employees ------- ##########
+    
+    
+    employees = Employee.create([
+        {lastName: "Houde", firstName: "Mathieu", title: "Gopher"},
+        {lastName: "Thibault", firstName: "Patrick", title: "Maximalist"},
+        {lastName: "Patry-Jessop", firstName: "Francis", title: "Captain"},
+        {lastName: "Amyot", firstName: "David", title: "The Man"},
+        {lastName: "Goupil", firstName: "Marie-Ève", title: "Al Master"},
+        {lastName: "Boivin", firstName: "François", title: "The Tank"},
+        {lastName: "Wever", firstName: "Timothy", title: "Beard whisperer"},
+        {lastName: "Kleinerman", firstName: "Kiril", title: "I <3 Winnipeg"},
+        {lastName: "Hartono", firstName: "Felicia", title: "Scrums are too early"},
+        {lastName: "Ai", firstName: "Eileen", title: "They really are"},
+    ])
 
-####### ------- Create Employees ------- ##########
+    # employees = [
+    #     ["Houde", "Mathieu",  "Gopher"],
+    #     ["Thibault", "Patrick",  "Maximalist"],
+    #     ["Patry-Jessop", "Francis",  "Captain"],
+    #     ["Amyot", "David",  "The Man"],
+    #     ["Goupil", "Marie-Ève",  "Al Master"],
+    #     ["Boivin", "François",  "The Tank"],
+    #     ["Wever", "Timothy",  "Beard whisperer"],
+    #     ["Kleinerman", "Kiril",  "I <3 Winnipeg"],
+    #     ["Hartono", "Felicia",  "Scrums are too early"],
+    #     ["Ai", "Eileen",  "They really are"],
+    # ]
 
 
-employees = Employee.create([
-    {lastName: "Houde", firstName: "Mathieu", title: "Gopher"},
-    {lastName: "Thibault", firstName: "Patrick", title: "Maximalist"},
-    {lastName: "Patry-Jessop", firstName: "Francis", title: "Captain"},
-    {lastName: "Amyot", firstName: "David", title: "The Man"},
-    {lastName: "Goupil", firstName: "Marie-Ève", title: "Al Master"},
-    {lastName: "Boivin", firstName: "François", title: "The Tank"},
-    {lastName: "Wever", firstName: "Timothy", title: "Beard whisperer"},
-    {lastName: "Kleinerman", firstName: "Kiril", title: "I <3 Winnipeg"},
-    {lastName: "Hartono", firstName: "Felicia", title: "Scrums are too early"},
-    {lastName: "Ai", firstName: "Eileen", title: "They really are"},
-])
+    # employees.each do |last_name, first_name, title|
+    #     Employee.create( lastName: last_name,  firstName: first_name, title: title)
+    # end
 
 
 
