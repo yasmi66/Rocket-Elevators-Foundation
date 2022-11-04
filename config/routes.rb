@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   root "application#mainPage"
 
+  get '/test', to: 'application#factElevator'
+
   get '/mainPage', to: "application#mainPage"
   get "/request_quote_page", to: "application#request_quote_page"
   get "/residential-services", to: "application#residential-services"

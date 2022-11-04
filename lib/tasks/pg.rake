@@ -35,6 +35,11 @@ namespace :pg do
       Rake::Task["db:version"].invoke
     end
 
+    # task :FactElevator :environment do
+    #   x = FactElevator.count
+    #   puts x
+    # end
+
     namespace :schema do
       task :load do
         Rake::Task["db:schema:load"].invoke
@@ -79,5 +84,6 @@ namespace :pg do
     Rails.application.config = @original_config[:config]
   end
 
-end
 
+
+end
