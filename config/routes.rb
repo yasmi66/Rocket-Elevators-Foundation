@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   root "application#mainPage"
 
   get '/mainPage', to: "application#mainPage"
-  get "/request-quote-page", to: "application#request-quote-page"
+  get "/request_quote_page", to: "application#request_quote_page"
   get "/residential-services", to: "application#residential-services"
 
 
