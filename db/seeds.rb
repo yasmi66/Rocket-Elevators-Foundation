@@ -36,6 +36,18 @@ message: Faker::Lorem.sentence,
 attached_file: Faker::Lorem.sentence,
 date_contact_request: Faker::Date.in_date_period
 
+leads = Lead.create(
+    full_name_contact: Faker::Name.name,
+    company_name: Faker::Company.name,
+    email:  Faker::Internet.email,
+    phone: Faker::PhoneNumber.cell_phone,
+    project_name: Faker::Company.catch_phrase,
+    project_description: Faker::Lorem.sentence,
+    departement_in_charge: Faker::Lorem.sentence,
+    message: Faker::Lorem.sentence,
+    attached_file: 1,
+    date_contact_request: Faker::Date.in_date_period
+)
 
 ####### ------- Create Addresses ------- ##########
 
@@ -50,7 +62,7 @@ addresses = Address.create(
     postal_code: address['postalCode'],
     country: address["state"],
     notes: Faker::Lorem.paragraph,
-    )
+)
 
 
     ####### ------- Create Users ------- ##########
@@ -180,21 +192,4 @@ end
         {lastName: "Ai", firstName: "Eileen", title: "They really are"},
     ])
 
-    # employees = [
-    #     ["Houde", "Mathieu",  "Gopher"],
-    #     ["Thibault", "Patrick",  "Maximalist"],
-    #     ["Patry-Jessop", "Francis",  "Captain"],
-    #     ["Amyot", "David",  "The Man"],
-    #     ["Goupil", "Marie-Ève",  "Al Master"],
-    #     ["Boivin", "François",  "The Tank"],
-    #     ["Wever", "Timothy",  "Beard whisperer"],
-    #     ["Kleinerman", "Kiril",  "I <3 Winnipeg"],
-    #     ["Hartono", "Felicia",  "Scrums are too early"],
-    #     ["Ai", "Eileen",  "They really are"],
-    # ]
-
-
-    # employees.each do |last_name, first_name, title|
-    #     Employee.create( lastName: last_name,  firstName: first_name, title: title)
-    # end
 

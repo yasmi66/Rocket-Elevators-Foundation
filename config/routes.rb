@@ -16,6 +16,13 @@ Rails.application.routes.draw do
   get 'quotes/request_quote'
   post '/request_quote', to: 'quotes#create'
 
+
+  get 'leads/leads_quote'
+  post '/leads_quote', to: 'leads#create'
+
+  root "application#main-landing-page"
+
+
   get 'leads/leads_quote'
   post '/leads_quote', to: 'leads#create'
 
