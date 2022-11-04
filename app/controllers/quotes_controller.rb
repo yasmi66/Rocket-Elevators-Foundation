@@ -1,5 +1,6 @@
 class QuotesController < ApplicationController
   def request_quote
+    
   end
 
   def create
