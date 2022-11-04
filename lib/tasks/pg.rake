@@ -1,15 +1,3 @@
-# namespace :db do
-#   desc "custom task"
-  
-#   task :main do
-#       Rake::Task['db:fact_quote'].invoke
-
-#   end
-#   task :fact_quote do
-#       ActiveRecord::Base.establish_connection("development")
-
-#   end
-
 
 desc "Managing the pg database"
 task spec: ["pg:db:test:prepare"]

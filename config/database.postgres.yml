@@ -1,17 +1,19 @@
 development:
  adapter: postgresql
  encoding: unicode
- database: data_warehouse
- pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
- username: postgres
- password: password
- host: localhost
+
+ database: Rocket_Elevator_Information_System
+ pool: 5
+ username: "mlouellette"
+ password: "Iloverails1!!"
+
 
  production:
   adapter: postgresql
   encoding: unicode
-  database: data_warehouse_production
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: postgres
-  password: password
-  host: localhost
+
+  database: Rocket_Elevator_Information_System_production
+  pool: 5
+  username: "mlouellette"
+  password: "Iloverails1!"
+
