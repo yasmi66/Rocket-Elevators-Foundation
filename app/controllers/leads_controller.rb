@@ -22,3 +22,4 @@ class LeadsController < ApplicationController
         flash[:success] = "Request successfully sent!"
 
     end
+end

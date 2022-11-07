@@ -20,13 +20,11 @@ Rails.application.routes.draw do
   get 'leads/leads_quote'
   post '/leads_quote', to: 'leads#create'
 
-  root "application#main-landing-page"
-
+  # do not change root path for the mainPage, the home page is now called "mainPage"
+  root "application#mainPage"
 
   get 'leads/leads_quote'
   post '/leads_quote', to: 'leads#create'
-
-  root "application#mainPage"
 
   get '/mainPage', to: "application#mainPage"
   get "/request_quote_page", to: "application#request_quote_page"
