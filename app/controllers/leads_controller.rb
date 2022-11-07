@@ -10,8 +10,8 @@ class LeadsController < ApplicationController
         leads.contactPhone = params[:contactPhone]
         leads.contactBuisnessName = params[:contactBuisnessName]
         leads.contactDepartement = params[:contactDepartement]
-        leads.contactProject = params[:contactProject]
-        leads.contactMessage = params[:contactMessage]
+        leads.projectName = params[:contactProject]
+        leads.message = params[:contactMessage]
         leads.contactAttachment = params[:contactAttachment]
 
         current_time = DateTime.now
