@@ -28,3 +28,6 @@
 
 # Ignore database credentials info
 /config/database.yml
+/config/database.postgres.yml
+lib/tasks/pg.rake
+lib/tasks/pg.rake

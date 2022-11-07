@@ -2,17 +2,18 @@
 development:
  adapter: postgresql
  encoding: unicode
- database: warehouse
+ database:  warehouse
  pool: 5
  host: localhost
  username: "root"
+ 
  password: "password"
 
 
  production:
   adapter: postgresql
   encoding: unicode
-  database: warehouse_production
+  database:  warehouse_production
   pool: 5
   # username: "root"
   # password: "Iloverails1!"

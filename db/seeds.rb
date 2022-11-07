@@ -23,7 +23,31 @@ address_entity = ["RESIDENTIAL", "CORPORATE"]
 
 battery_type = ["Residential", "Commercial", "Corporate", "Hybrid"]
 
+####### ------- Create leads ------- ##########
 
+contactName = Faker::Name.name,
+contactBuisnessName = Faker::Company.name,
+contactEmail =  Faker::Internet.email,
+contactPhone = Faker::PhoneNumber.cell_phone,
+projectName = Faker::Company.catch_phrase,
+projectDescription = Faker::Lorem.sentence,
+contactDepartement = Faker::Lorem.sentence,
+message = Faker::Lorem.sentence,
+contactAttachment = Faker::Lorem.sentence,
+contactDate = Faker::Date.in_date_period,
+
+leads = Lead.create(
+    contactName: Faker::Name.name,
+    contactBuisnessName: Faker::Company.name,
+    contactEmail:  Faker::Internet.email,
+    contactPhone: Faker::PhoneNumber.cell_phone,
+    projectName: Faker::Company.catch_phrase,
+    projectDescription: Faker::Lorem.sentence,
+    contactDepartement: Faker::Lorem.sentence,
+    message: Faker::Lorem.sentence,
+    contactAttachment: 1,
+    contactDate: Faker::Date.in_date_period
+)
 
 ####### ------- Create Addresses ------- ##########
 
@@ -38,7 +62,7 @@ addresses = Address.create(
     postal_code: address['postalCode'],
     country: address["state"],
     notes: Faker::Lorem.paragraph,
-    )
+)
 
 
     ####### ------- Create Users ------- ##########
@@ -168,21 +192,4 @@ end
         {lastName: "Ai", firstName: "Eileen", title: "They really are"},
     ])
 
-    # employees = [
-    #     ["Houde", "Mathieu",  "Gopher"],
-    #     ["Thibault", "Patrick",  "Maximalist"],
-    #     ["Patry-Jessop", "Francis",  "Captain"],
-    #     ["Amyot", "David",  "The Man"],
-    #     ["Goupil", "Marie-Ève",  "Al Master"],
-    #     ["Boivin", "François",  "The Tank"],
-    #     ["Wever", "Timothy",  "Beard whisperer"],
-    #     ["Kleinerman", "Kiril",  "I <3 Winnipeg"],
-    #     ["Hartono", "Felicia",  "Scrums are too early"],
-    #     ["Ai", "Eileen",  "They really are"],
-    # ]
-
-
-    # employees.each do |last_name, first_name, title|
-    #     Employee.create( lastName: last_name,  firstName: first_name, title: title)
-    # end
 

@@ -16,10 +16,19 @@ Rails.application.routes.draw do
   get 'quotes/request_quote'
   post '/request_quote', to: 'quotes#create'
 
+
   get 'leads/leads_quote'
   post '/leads_quote', to: 'leads#create'
 
   root "application#mainPage"
+
+
+  get 'leads/leads_quote'
+  post '/leads_quote', to: 'leads#create'
+
+  root "application#mainPage"
+
+  get '/test', to: 'application#factElevator'
 
   get '/mainPage', to: "application#mainPage"
   get "/request_quote_page", to: "application#request_quote_page"
