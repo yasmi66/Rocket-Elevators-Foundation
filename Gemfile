@@ -85,4 +85,6 @@ gem 'pg'
 
 # gem 'faker'
 
+gem 'geocoder'
+
 
