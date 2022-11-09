@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 2022_10_26_152010) do
     t.string "postal_code", null: false
     t.string "country", null: false
     t.text "notes"
+    t.decimal "latitude", precision: 10
+    t.decimal "longitude", precision: 10
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -96,7 +98,6 @@ ActiveRecord::Schema.define(version: 2022_10_26_152010) do
     t.integer "serial_nb"
     t.string "model"
     t.string "elevator_type"
-    t.string "elevator_status"
     t.datetime "date_commissioning"
     t.datetime "date_last_inspection"
     t.string "certificate_inspection"

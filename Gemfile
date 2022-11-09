@@ -90,3 +90,8 @@ gem 'pg'
 gem "slack-ruby-client", "~> 2.0"
 
 gem "figaro", "~> 1.2"
+# gem 'faker'
+
+gem 'geocoder'
+
+
