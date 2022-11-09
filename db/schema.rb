@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2022_10_26_152010) do
-
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "type_address", null: false
@@ -98,6 +96,7 @@ ActiveRecord::Schema.define(version: 2022_10_26_152010) do
     t.integer "serial_nb"
     t.string "model"
     t.string "elevator_type"
+    t.string "elevator_status"
     t.datetime "date_commissioning"
     t.datetime "date_last_inspection"
     t.string "certificate_inspection"
@@ -120,10 +119,10 @@ ActiveRecord::Schema.define(version: 2022_10_26_152010) do
     t.string "contactBuisnessName", limit: 99, null: false
     t.string "contactEmail", limit: 99, null: false
     t.string "contactPhone", null: false
-    t.string "contactProject", limit: 99, null: false
-    t.string "project_description"
+    t.string "projectName", limit: 99, null: false
+    t.string "projectDescription"
     t.string "contactDepartement", limit: 99, null: false
-    t.string "contactMessage"
+    t.string "message"
     t.binary "contactAttachment", limit: 1
     t.date "contactDate", null: false
     t.datetime "created_at", null: false

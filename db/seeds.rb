@@ -1,4 +1,3 @@
-
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -25,28 +24,18 @@ battery_type = ["Residential", "Commercial", "Corporate", "Hybrid"]
 
 ####### ------- Create leads ------- ##########
 
-full_name_contact: Faker::Name.name,
-company_name: Faker::Company.name,
-email:  Faker::Internet.email,
-phone: Faker::PhoneNumber.cell_phone,
-project_name: Faker::Company.catch_phrase
-project_description: Faker::Lorem.sentence
-departement_in_charge: Faker::Lorem.sentence
-message: Faker::Lorem.sentence,
-attached_file: Faker::Lorem.sentence,
-date_contact_request: Faker::Date.in_date_period
 
 leads = Lead.create(
-    full_name_contact: Faker::Name.name,
-    company_name: Faker::Company.name,
-    email:  Faker::Internet.email,
-    phone: Faker::PhoneNumber.cell_phone,
-    project_name: Faker::Company.catch_phrase,
-    project_description: Faker::Lorem.sentence,
-    departement_in_charge: Faker::Lorem.sentence,
+    contactName: Faker::Name.name,
+    contactBuisnessName: Faker::Company.name,
+    contactEmail:  Faker::Internet.email,
+    contactPhone: Faker::PhoneNumber.cell_phone,
+    projectName: Faker::Company.catch_phrase,
+    projectDescription: Faker::Lorem.sentence,
+    contactDepartement: Faker::Lorem.sentence,
     message: Faker::Lorem.sentence,
-    attached_file: 1,
-    date_contact_request: Faker::Date.in_date_period
+    contactAttachment: 1,
+    contactDate: Faker::Date.in_date_period
 )
 
 ####### ------- Create Addresses ------- ##########
@@ -168,6 +157,7 @@ addresses = Address.create(
         serial_nb: Faker::Number.number(digits: 6),
         model: Faker::Commerce.brand,
         elevator_type: Faker::Types.rb_string,
+        elevator_status: ["Active", "Inactive"].sample,
         date_commissioning: Faker::Date.in_date_period,
         date_last_inspection: Faker::Date.in_date_period,
         certificate_inspection: Faker::Commerce.brand,
@@ -191,5 +181,3 @@ end
         {lastName: "Hartono", firstName: "Felicia", title: "Scrums are too early"},
         {lastName: "Ai", firstName: "Eileen", title: "They really are"},
     ])
-
-

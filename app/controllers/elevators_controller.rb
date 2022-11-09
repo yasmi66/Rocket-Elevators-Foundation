@@ -27,9 +27,6 @@ class ElevatorsController < ApplicationController
       if @elevator.save
         format.html { redirect_to elevator_url(@elevator), notice: "Elevator was successfully created." }
         format.json { render :show, status: :created, location: @elevator }
-        # client = Slack::Web::Client.new
-        # client.auth_test
-        # client.chat_postMessage(channel: '#eileen-elevator_operations', text: 'Hello World', as_user: true)
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @elevator.errors, status: :unprocessable_entity }
