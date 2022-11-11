@@ -10,7 +10,7 @@ class CreateLeads < ActiveRecord::Migration[5.2]
       t.string "projectDescription"
       t.string "contactDepartement", limit: 99, null: false
       t.string "message"
-      t.binary "contactAttachment", limit: 1
+      t.binary "contactAttachment"
       t.date "contactDate", null: false
 
       t.timestamps
