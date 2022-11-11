@@ -21,18 +21,17 @@ class LeadsController < ApplicationController
         leads.save
         flash[:success] = "Request successfully sent!"
 
+        if leads.contactAttachment.present?
+            client = DropboxApi::Client.new(ENV['DROPBOX_API_TOKEN'])
+            begin
+                result = client.create_folder('/' + leads.contactName)
+                # test = Lead.first
+                # binary = test.leads.contactAttachment
+                file_content = IO.read("#{leads.contactAttachment}")
+                client.upload('/' + leads.contactName + '/' + file_content, leads.contactAttachment)
+            end
+        end
     end
-    
-    # def download
-    #     if contactAttachment.exists?
-    #         client = DropboxApi::Client.new(ENV['DROPBOX_API_TOKEN'])
-    #         result = client.create_folder('/' + contactName)
-            
-    #         test = Lead.first
-    #         binary = test.contactAttachment
-    #         client.upload('/' + contactName, binary)
-    #     end
-    # end
 
     # def delete
     #     if contactAttachment.attached?
