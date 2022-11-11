@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 2022_10_26_152010) do
     t.string "postal_code", null: false
     t.string "country", null: false
     t.text "notes"
-    t.decimal "latitude", precision: 10
-    t.decimal "longitude", precision: 10
+    t.decimal "latitude", precision: 10, scale: 6
+    t.decimal "longitude", precision: 10, scale: 6
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2022_10_26_152010) do
   create_table "buildings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.bigint "customer_id"
     t.bigint "address_id"
-    t.string "AdressBuilding"
+    t.string "addressBuilding"
     t.string "FullNameBuildingAdmin"
     t.string "EmailAdminBuilding"
     t.string "PhoneNumberBuildingAdmin"

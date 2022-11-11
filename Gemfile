@@ -87,4 +87,6 @@ gem 'pg'
 
 gem 'geocoder'
 
+gem 'gmaps4rails'
+
 

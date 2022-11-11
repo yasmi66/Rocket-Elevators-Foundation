@@ -5,4 +5,7 @@ class Column < ApplicationRecord
     belongs_to :battery
     has_many :elevators
 
+    def fromBattery
+        Column.battery_id
+    end
 end

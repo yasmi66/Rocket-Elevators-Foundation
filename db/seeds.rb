@@ -52,6 +52,8 @@ addresses = Address.create(
     postal_code: address['postalCode'],
     country: address["state"],
     notes: Faker::Lorem.paragraph,
+    latitude: Address.geocoded[0],
+    longitude: Address.geocoded[1],
 )
 
 
@@ -81,7 +83,7 @@ addresses = Address.create(
 
 
     ####### ------- Create Buildings ------- ##########
-
+# THIS IS THE GOOD VERSION, THE NAMES CHANGE ARE NECESSARY FOR THE GOOGLE API TO FUNCTION
     full_address = addresses.number_and_street + " " + addresses.city,
     name = Faker::Name.name
     email = Faker::Internet.email
@@ -92,7 +94,7 @@ addresses = Address.create(
     building = Building.create(
         customer_id: customer.id,
         address_id: addresses.id,
-        AdressBuilding: full_address,
+        addressBuilding: full_address,
         FullNameBuildingAdmin: name,
         EmailAdminBuilding: email,
         PhoneNumberBuildingAdmin: phone1,

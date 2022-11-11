@@ -9,4 +9,13 @@ class Building < ApplicationRecord
     belongs_to :customer
     belongs_to :address
 
+    def position
+        #puts address.number_and_street
+        #{address: address.number_and_street}
+        [address.number_and_street ,address.city, address.postal_code, address.country].compact.join(", ")
+    end
+
+    # def customer
+    #     customer.CompanyName
+    # end
 end

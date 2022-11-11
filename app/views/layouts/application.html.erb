@@ -5,6 +5,8 @@
 		<title>RocketElevatorsInformationSystem</title>
 		<%= csrf_meta_tags %>
 		<%= csp_meta_tag %>
+		<%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAPzW8Z-MqPXrzIBZB-62otoa6w5aaVuSc' %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 		<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 		<%= stylesheet_link_tag 'bootstrap',  media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -16,6 +18,8 @@
 		<%= javascript_include_tag 'form.estimate.nbrelevator', media: 'all', 'data-turbolinks-track': 'reload' %>
 		<%= javascript_include_tag 'form.estimate.rates', media: 'all', 'data-turbolinks-track': 'reload' %>
 		<%= javascript_include_tag 'form.hide.show', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+		<%= yield(:head_tags) %>
 	</head>
 
 	<body>

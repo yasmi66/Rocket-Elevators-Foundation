@@ -3,7 +3,7 @@ class CreateBuildings < ActiveRecord::Migration[5.2]
     create_table :buildings do |t|
       t.bigint :customer_id
       t.bigint :address_id
-      t.string :AdressBuilding
+      t.string :addressBuilding
       t.string :FullNameBuildingAdmin
       t.string :EmailAdminBuilding
       t.string :PhoneNumberBuildingAdmin
