@@ -24,6 +24,24 @@ To display databases type `SHOW DATABASES;`, and `USE <database_name>;` and now 
 Here is an example :
 ![alt text](https://github.com/mlouellette/Rocket_Elevators_Information_System/blob/main/image.png?raw=true)
 
+# FreshDesk API
+
+FreshDesk is a SaaS platform to which you can subscribe and which allows you to manage the workflow that takes place when a customer comes into contact via the Website either via the “Contact Us” form or also via the “Get a Quote” form. ”In both cases, a ticket must be created in FreshDesk in the same way as a recording is added in the information system.
+
+- Enter your credentials in the "Contact us" form at the bottom of the main landing page or in the "Quote" page.
+- Once its done press the submit button
+- Go to the admin freshdesk page ( https://rocketelevatorscanada.freshdesk.com/a/admin )
+- Once inside the freshdesk interface, click the ticket button at the left side of the page. 
+- You should've receive a new ticket with the type of credentials you entered, either in the form or quote page.
+
+# Sendgrid API
+
+Use case to implement the Sendgrid API is sending a thank you email automatically when a contact completes the "Contact Us" form on the Rocket Elevators website. The form is saved with the email field to use. When saving to the database, a transactional thank-you email must be sent with the text below:
+
+- Enter your credentials inside the "Contact us" form at the bottom of the main landing page.
+- Press the submit button and the button should turn green meaning the infos are sent to the database
+- Open your mail service to see your "Thank you" email.
+
 # Video's Link
 
 Yanni's video : https://www.youtube.com/watch?v=ncBOzzTVfIo
