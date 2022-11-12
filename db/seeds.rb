@@ -1,4 +1,3 @@
-
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -160,6 +159,7 @@ addresses = Address.create(
         serial_nb: Faker::Number.number(digits: 6),
         model: Faker::Commerce.brand,
         elevator_type: Faker::Types.rb_string,
+        elevator_status: ["Active", "Inactive"].sample,
         date_commissioning: Faker::Date.in_date_period,
         date_last_inspection: Faker::Date.in_date_period,
         certificate_inspection: Faker::Commerce.brand,
@@ -183,5 +183,3 @@ end
         {lastName: "Hartono", firstName: "Felicia", title: "Scrums are too early"},
         {lastName: "Ai", firstName: "Eileen", title: "They really are"},
     ])
-
-

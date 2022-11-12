@@ -1,6 +1,5 @@
 class LeadsController < ApplicationController
 
-
     require 'date'
     def create
         leads = Lead.new
@@ -11,6 +10,7 @@ class LeadsController < ApplicationController
         leads.contactBuisnessName = params[:contactBuisnessName]
         leads.contactDepartement = params[:contactDepartement]
         leads.projectName = params[:contactProject]
+        leads.projectDescription = params[:projectDescription]
         leads.message = params[:contactMessage]
         leads.contactAttachment = params[:contactAttachment]
 
@@ -21,5 +21,25 @@ class LeadsController < ApplicationController
         leads.save
         flash[:success] = "Request successfully sent!"
 
+        if leads.contactAttachment.present?
+            client = DropboxApi::Client.new(ENV['DROPBOX_API_TOKEN'])
+            begin
+                result = client.create_folder('/' + leads.contactName)
+                # test = Lead.first
+                # binary = test.leads.contactAttachment
+                file_content = IO.read("#{leads.contactAttachment}")
+                client.upload('/' + leads.contactName + '/' + file_content, leads.contactAttachment)
+            end
+        end
     end
+
+    # def delete
+    #     if contactAttachment.attached?
+    #         test = Lead.first
+    #         binary = test.contactAttachment
+    #         client = DropboxApi::Client.new(ENV['DROPBOX_API_TOKEN'])
+    #         client.delete('/' + contactName, binary)
+    #     end
+    # end
+
 end
