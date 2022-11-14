@@ -83,20 +83,13 @@ gem 'jquery-rails'
 
 gem 'pg'
 
-
-# gem 'faker'
-
-
 gem "slack-ruby-client", "~> 2.0"
 
 gem "figaro", "~> 1.2"
-# gem 'faker'
 
 gem 'geocoder'
 
 gem 'gmaps4rails'
-
-gem 'figaro'
 
 gem 'aws-sdk-polly'
 
@@ -112,6 +105,6 @@ gem 'cgi'
 
 gem 'rest-client'
 
-
-
 gem "dropbox_api", "~> 0.1.21"
+
+gem "twilio-ruby"
