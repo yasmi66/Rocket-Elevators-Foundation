@@ -1,2 +1,0 @@
-json.extract! quote, :id, :buildingType, :nbrAppBuild, :nbrFloorsR, :nbrFloorsC, :nbrFloorsCor, :nbrFloorsH, :nbrBasementFloorsR, :nbrBasementFloorsC, :nbrBasementFloorsCor, :nbrBasementFloorsH, :nbrDisBuiCor, :nbrDisBuiH, :nbrParkingC, :nbrParkingCor, :nbrParkingH, :nbrElevatorCages, :nbrOccPerFloorCor, :nbrOccPerFloorH, :nbrActPerDay, :serviceType, :created_at, :updated_at
-json.url quote_url(quote, format: :json)

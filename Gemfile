@@ -96,6 +96,22 @@ gem 'geocoder'
 
 gem 'gmaps4rails'
 
+gem 'figaro'
+
+gem 'aws-sdk-polly'
+
+gem 'aws-sdk'
+
+gem 'aws-sdk-rails'
+
+gem 'sendgrid-ruby'
+
+gem 'sendgrid-actionmailer'
+
+gem 'cgi'
+
+gem 'rest-client'
+
 
 
 gem "dropbox_api", "~> 0.1.21"
