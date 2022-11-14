@@ -68,6 +68,6 @@ class ElevatorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def elevator_params
-      params.require(:elevator).permit(:column_id, :serial_nb, :model, :type, :date_commissioning, :date_last_inspection, :certificate_inspection, :information, :notes)
+      params.require(:elevator).permit(:column_id, :serial_nb, :model, :elevator_status, :date_commissioning, :date_last_inspection, :certificate_inspection, :information, :notes)
     end
 end

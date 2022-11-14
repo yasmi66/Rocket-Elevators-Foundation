@@ -8,6 +8,8 @@
     @batteryList = []
     @columnList = []
     @elevatorList = []
+    @techContactList = []
+    # loops through every addresses in the database and adds the specified informations in arrays for javascript use
     Address.find_each do |address|
         @lat = address.latitude
             @latList.push(@lat)
@@ -18,7 +20,15 @@
         @client = @building.customer.CompanyName
             @clientList.push(@client)
         @batteryList.push(@building.battery_ids.length)
+        @column = @building.batteries[0].columns
+            @columnList.push(@column)
+        @techcontact = @building.FullNameBuildingAdmin
+            @techContactList.push(@techcontact)
+
     end
+    # gets the initial map position as the position for the first address in database
+    @mapLat = Address.first.latitude
+    @mapLng = Address.first.longitude
     %>
 
     <script>
@@ -29,8 +39,8 @@
             a = <%= raw @clientList.to_json %>
             b = <%= raw @batteryList.to_json %>
             c = <%= raw @columnList.to_json %>
-            d = <%= raw @elevatorList.to_json %>
-            initMap(30, 30, x, y, z, a, b, c)
+            d = <%= raw @techContactList.to_json %>
+            initMap(<%= @mapLat %>, <%= @mapLng %>, x, y, z, a, b, c, d)
         });
     </script>
 

@@ -1,6 +1,6 @@
 // var addresses = #{raw @addresses.to_json};
 
-function initMap(lat, lng, latList, lngList, addressList, clientList, batteryList, columnList) {
+function initMap(lat, lng, latList, lngList, addressList, clientList, batteryList, columnList, techName) {
     var myCoords = new google.maps.LatLng(lat, lng);
     var mapOptions = {
     center: myCoords,
@@ -18,7 +18,9 @@ function initMap(lat, lng, latList, lngList, addressList, clientList, batteryLis
             addressList[i] + '<br>' + 
             clientList[i] + '<br>' + 
             "There is " + batteryList[i] + " battery(ies) in this building" + '<br>' +
-            "There is " + columnList[i] + " column(s) in this building" + '<br>'
+            "There is " + columnList[i] + " column(s) in this building" + '<br>' +
+            "There is " + "x" + " elevator(s) in this building" + '<br>' +
+            "Technical contact : " + techName[i] + '<br>'
 
         });
         marker.addListener("click", () => {
