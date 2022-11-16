@@ -108,3 +108,5 @@ gem 'rest-client'
 gem "dropbox_api", "~> 0.1.21"
 
 gem "twilio-ruby"
+
+gem "graphql-ruby"
