@@ -1,10 +1,10 @@
 RailsAdmin.config do |config|
 
   config.navigation_static_links = {
-  'Speech' => '/speech.mp3'
+  'Speech' => '/speech.mp3',
+  'Map' => '/map'
 
   }
-
 
   #config.authorize_with do
     #redirect_to main_app.root_path unless warden.user.admin==true

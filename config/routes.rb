@@ -26,8 +26,8 @@ Rails.application.routes.draw do
   get 'leads/leads_quote'
   post '/leads_quote', to: 'leads#create'
 
-  get '/test', to: 'application#factElevator'
-  get '/map', to: 'application#google_map'
+  get '/map', to: 'application#factElevator'
+  # get '/map', to: 'application#google_map'
 
   get '/mainPage', to: "application#mainPage"
   get "/request_quote_page", to: "application#request_quote_page"
