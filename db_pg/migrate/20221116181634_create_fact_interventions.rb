@@ -3,6 +3,7 @@ class CreateFactInterventions < ActiveRecord::Migration[5.2]
     create_table :fact_interventions do |t|
       t.integer :employee_id, null: false
       t.integer :building_id, null: false
+      t.integer :battery_id, null: false
       t.integer :column_id, null: true
       t.integer :elevator_id, null: true
       t.datetime :start_intervention, null: false

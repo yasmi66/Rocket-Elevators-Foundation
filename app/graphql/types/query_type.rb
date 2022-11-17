@@ -21,6 +21,15 @@ module Types
     def address
       Address.all
     end
+  
+    field :intervention,
+    [Types::FactInterventionType],
+    null: false,
+    description: "Return a list of addresses"
+
+    def factIntervention
+      FactIntervention.all
+    end
 
   end
 end
