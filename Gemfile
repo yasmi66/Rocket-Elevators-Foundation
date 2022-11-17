@@ -62,6 +62,7 @@ group :development do
   gem 'capistrano3-puma', '5.2.0'
   gem 'ed25519', '>= 1.2', '< 2.0'
   gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
+  gem 'graphiql-rails'
 end
 
 group :test do
@@ -109,4 +110,4 @@ gem "dropbox_api", "~> 0.1.21"
 
 gem "twilio-ruby"
 
-gem "graphql-ruby"
+gem 'graphql', '~> 2.0', '>= 2.0.15'
