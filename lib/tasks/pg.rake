@@ -42,7 +42,7 @@ namespace :pg do
 
 
     task :fact_contact => :environment do
-      fc = ActiveRecord::Base.connection.execute('SELECT l.id, l.created_at, l.company_name, l.email, l.project_name
+      fc = ActiveRecord::Base.connection.execute('SELECT l.id, l.created_at, l.contactName, l.contactEmail, l.projectName
                                                   FROM leads l;')
       ActiveRecord::Base.establish_connection(
         :adapter  => "postgresql",
