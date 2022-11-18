@@ -2,6 +2,8 @@
 
 module Types
   class EmployeeType < Types::BaseObject
+    field :interventions, [FactInterventionType], null: true
+
     field :id, ID, null: false
     field :lastName, String
     field :firstName, String
@@ -9,6 +11,9 @@ module Types
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
 
-    
+    def interventions
+      FactIntervention.where(employee_id: object.id)
+    end
+
   end
 end
