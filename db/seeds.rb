@@ -109,7 +109,7 @@ addresses = Address.create(
         building_id: building.id,
         battery_type: battery_type[rand(4)],
         status: ["Active", "Inactive"].sample,
-        employee_id: Faker::IDNumber.valid,
+        employee_id: Faker::Number.between(from: 1, to: 10),
         date_commissioning: Faker::Date.in_date_period,
         date_last_inspection: Faker::Date.in_date_period,
         certificate_operations: Faker::Lorem.sentence,

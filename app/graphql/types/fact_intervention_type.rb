@@ -3,6 +3,8 @@
 module Types
   class FactInterventionType < Types::BaseObject
     field :address, [Types::AddressType], null: false
+    field :building, Types::BuildingType, null:true
+    field :buildingDetails, [Types::BuildingDetailType], null: true
 
     field :id, ID, null: false
     field :employee_id, Integer
@@ -18,6 +20,14 @@ module Types
 
     def address
       Address.where(id: object.building_id)
+    end
+
+    def buildingDetails
+      BuildingDetail.where(id: object.building_id)
+    end
+
+    def building
+      Building.where(id: object.building_id)[0]
     end
   end
 
