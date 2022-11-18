@@ -2,6 +2,8 @@
 
 module Types
   class FactInterventionType < Types::BaseObject
+    field :address, [Types::AddressType], null: false
+
     field :id, ID, null: false
     field :employee_id, Integer
     field :building_id, Integer
@@ -13,5 +15,10 @@ module Types
     field :result, String
     field :report, String
     field :status, String
+
+    def address
+      Address.where(id: object.building_id)
+    end
   end
+
 end
