@@ -21,12 +21,6 @@ module Types
     def address
       Address.all
     end
-  
-    # field :fact_intervention, [FactInterventionType], null: false,
-    # description: "For the fact intervention queries"
-    # def fact_intervention
-    #   FactIntervention.all
-    # end
 
     field :interventions, [Types::FactInterventionType], null: false do
       description 'Find all interventions'
