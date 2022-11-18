@@ -70,6 +70,7 @@ module Types
 
     field :employees, [EmployeeType], null: false,
     description: "Return a list of employees"
+
     def employee(id:)
       Employee.find(id)
     end
@@ -77,6 +78,7 @@ module Types
     def employees
       Employee.all
     end
+
 
     ##### Building ######
 
