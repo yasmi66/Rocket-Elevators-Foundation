@@ -1699,7 +1699,7 @@ DEPENDENCIES
   aws-sdk-polly
   aws-sdk-rails
   bcrypt_pbkdf (>= 1.0, < 2.0)
-  bootsnap (>= 1.1.0)
+  bootsnap
   bootstrap (~> 5.2.2)
   byebug
   capistrano (~> 3.10)

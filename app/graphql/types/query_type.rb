@@ -22,13 +22,27 @@ module Types
       Address.all
     end
   
-    field :intervention,
-    [Types::FactInterventionType],
-    null: false,
-    description: "Return a list of addresses"
+    # field :fact_intervention, [FactInterventionType], null: false,
+    # description: "For the fact intervention queries"
+    # def fact_intervention
+    #   FactIntervention.all
+    # end
 
-    def factIntervention
+    field :interventions, [Types::FactInterventionType], null: false do
+      description 'Find all interventions'
+    end
+
+    field :intervention, Types::FactInterventionType, null: false do
+      description 'Find a author by ID'
+      argument :id, ID, required: true
+    end
+
+    def interventions
       FactIntervention.all
+    end
+
+    def intervention(id:)
+      FactIntervention.find(id)
     end
 
   end

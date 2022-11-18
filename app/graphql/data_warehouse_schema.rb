@@ -1,4 +1,4 @@
-class RocketElevatorsInformationSystemSchema < GraphQL::Schema
+class DataWarehouseSchema < GraphQL::Schema
   mutation(Types::MutationType)
   query(Types::QueryType)
 
