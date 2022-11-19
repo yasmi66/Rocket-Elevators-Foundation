@@ -42,11 +42,96 @@ Use case to implement the Sendgrid API is sending a thank you email automaticall
 - Press the submit button and the button should turn green meaning the infos are sent to the database.
 - Open your mail service to see your "Thank you" email.
 
+# GraphQL API
+
+The definition of the GraphQL API is setup using the Ruby on rails GEM : https://graphql-ruby.org/
+
+GraphQL queries applied to the API are returning results for the following questions :
+
+1. Retrieving the address of the building, the beginning and the end of the intervention for a specific intervention.
+
+``` 
+ {
+
+    intervention(id: 5){
+     startIntervention
+     endIntervention
+     status
+       address {
+         city
+         country
+         numberAndStreet
+       }
+    }
+ }
+ ```
+
+2. Retrieving customer information and the list of interventions that took place for a specific building
+
+```
+{  
+ building(id: 10){
+     id
+     customer{
+       id
+       CompanyName
+       CompanyDescription
+       FullNameCompanyContact
+       FullNameServiceTechnicalAuth  
+     }
+   interventions{
+       id
+       startIntervention
+       endIntervention
+      	status
+       result
+     }
+   }
+ }
+```
+
+3. Retrieval of all interventions carried out by a specified employee with the buildings associated with these interventions including the details (Table BuildingDetails) associated with these buildings.
+
+```
+ {  
+	employee(id: 6){
+    firstName
+    lastName
+    interventions{
+      id
+      status
+      result
+      building{
+        id
+      }
+      buildingDetails{
+        informationKey
+        value
+      }
+    }
+	}
+}
+```
+
+## Usage
+
+```ubuntu
+$ cd Rocket_Elevators_API/
+$ rails server
+```
+
+- Open your browser and enter the following link : http://localhost:3000/graphiql
+- Copy one of the querie code blocks in this readme file and paste with the id number of your choice in the graphql interface
+- Press the play button to see the result
+
+
 # Video's Link
 
 Yanni's video : https://www.youtube.com/watch?v=ncBOzzTVfIo
 
 Michael's video : https://www.youtube.com/watch?v=cUv8bDaL488
+
+# GraphQL API
 
 
 
