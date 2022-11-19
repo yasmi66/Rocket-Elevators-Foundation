@@ -135,8 +135,3 @@ $ rails server
 Yanni's video : https://www.youtube.com/watch?v=ncBOzzTVfIo
 
 Michael's video : https://www.youtube.com/watch?v=cUv8bDaL488
-
-# GraphQL API
-
-
-
