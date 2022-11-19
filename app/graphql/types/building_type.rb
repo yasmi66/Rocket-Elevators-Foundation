@@ -23,7 +23,7 @@ module Types
       Customer.where(id: object.customer_id).first
     end
 
-    #  join Factintervention and get one only item
+    ###  join Factintervention and get one only item
     def interventions
       FactIntervention.where(building_id: object.id)
     end

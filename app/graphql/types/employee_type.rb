@@ -11,6 +11,7 @@ module Types
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
 
+    ###  join Factintervention and get one only item
     def interventions
       FactIntervention.where(employee_id: object.id)
     end
