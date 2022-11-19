@@ -109,7 +109,7 @@ GraphQL queries applied to the API are returning results for the following quest
         value
       }
     }
-	}
+  }
 }
 ```
 
@@ -117,6 +117,7 @@ GraphQL queries applied to the API are returning results for the following quest
 
 ```ubuntu
 $ cd Rocket_Elevators_API/
+$ bundle install
 $ rails server
 ```
 
