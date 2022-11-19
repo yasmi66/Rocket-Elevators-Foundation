@@ -18,14 +18,17 @@ module Types
     field :report, String
     field :status, String
 
+    ###  join address
     def address
       Address.where(id: object.building_id)
     end
 
+    ###  join building_details
     def buildingDetails
       BuildingDetail.where(id: object.building_id)
     end
 
+    ###  join building
     def building
       Building.where(id: object.building_id)[0]
     end
