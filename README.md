@@ -115,9 +115,13 @@ GraphQL queries applied to the API are returning results for the following quest
 
 ## Usage
 
+- Make sure your local sql and psql databases are seeded
+
 ```ubuntu
 $ cd Rocket_Elevators_API/
 $ bundle install
+$ rake db:drop db:create db:migrate db:seed
+$ rake pg:db:drop pg:db:create pg:db:migrate pg:db:fact_interventions
 $ rails server
 ```
 
