@@ -5,15 +5,15 @@
 <table>
   <thead>
     <tr>
-      <th>Ticket Author</th>
-      <th>Customer ID</th>
-      <th>Building ID</th>
-      <th>Battery ID</th>
-      <th>Column ID</th>
-      <th>Elevator ID</th>
-      <th>Employee ID</th>
-      <th>Intervention Start Date</th>
-      <th>Intervention End Date</th>
+      <th>Author</th>
+      <th>CustomerID</th>
+      <th>BuildingID</th>
+      <th>BatteryID</th>
+      <th>ColumnID</th>
+      <th>ElevatorID</th>
+      <th>EmployeeID</th>
+      <th>StartDate</th>
+      <th>EndDate</th>
       <th>Result</th>
       <th>Report</th>
       <th>Status</th>
@@ -24,20 +24,21 @@
   <tbody>
     <% @interventions.each do |intervention| %>
       <tr>
-        <td><%= intervention.author %></td>
-        <td><%= intervention.customerID %></td>
-        <td><%= intervention.buildingID %></td>
-        <td><%= intervention.batteryID %></td>
-        <td><%= intervention.columnID %></td>
-        <td><%= intervention.elevatorID %></td>
-        <td><%= intervention.employeeID %></td>
-        <td><%= intervention.startDate %></td>
-        <td><%= intervention.endDate %></td>
-        <td><%= intervention.result %></td>
-        <td><%= intervention.report %></td>
-        <td><%= intervention.status %></td>
+        <td><%= intervention.Author %></td>
+        <td><%= intervention.CustomerID %></td>
+        <td><%= intervention.BuildingID %></td>
+        <td><%= intervention.BatteryID %></td>
+        <td><%= intervention.ColumnID %></td>
+        <td><%= intervention.ElevatorID %></td>
+        <td><%= intervention.EmployeeID %></td>
+        <td><%= intervention.StartDate %></td>
+        <td><%= intervention.EndDate %></td>
+        <td><%= intervention.Result %></td>
+        <td><%= intervention.Report %></td>
+        <td><%= intervention.Status %></td>
         <td><%= link_to 'Show', intervention %></td>
         <td><%= link_to 'Edit', edit_intervention_path(intervention) %></td>
+        <td><%= link_to 'New Intervention', new_intervention_path %><td>
         <td><%= link_to 'Destroy', intervention, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

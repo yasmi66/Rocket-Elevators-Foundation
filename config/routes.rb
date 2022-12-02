@@ -24,6 +24,22 @@ Rails.application.routes.draw do
 
   get 'leads/leads_quote'
   post '/leads_quote', to: 'leads#create'
+  
+  get '/interventions', to: 'interventions#index'
+  post'/interventions', to: 'interventions#create'
+
+
+  # get 'interventions/index', to: 'interventions#index'
+  # get '/interventions/new', to: 'interventions#new'
+  # post '/interventions/create', to: 'interventions#create'
+  # get '/interventions/edit', to: 'interventions#edit'
+  # post '/interventions/new', to: 'interventions#show'
+  # post '/interventions/new', to: 'interventions#create'
+  # get 'interventions/index' => 'interventions#index'
+  # get 'interventions/new'
+  # post '/interventions/new', to: 'interventions#create'
+  # post 'interventions/create', to: 'interventions#new_intervention_path'
+ 
 
   # do not change root path for the mainPage, the home page is now called "mainPage"
   root "application#mainPage"
@@ -38,16 +54,8 @@ Rails.application.routes.draw do
   get "/request_quote_page", to: "application#request_quote_page"
   get "/residential-services", to: "application#residential-services"
 
-  #root path for Intervention service
 
-  # get 'interventions/intervention_page'
-  # post'/intervention_page\', to: 'interventions#create'
-
-  # root to: redirect('/interventions')
-  # get 'interventions', to: 'interventions#index', as: 'interventions'
-  # get 'interventions/new', to: 'interventions#new', as: 'new_intervention'
-  # get 'interventions/:id', to: 'interventions#show', as: 'intervention'
-  # post '/interventions', to: 'interventions#create'
+ 
   
 
 

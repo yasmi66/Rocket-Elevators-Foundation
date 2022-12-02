@@ -2,7 +2,6 @@
   <% if intervention.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(intervention.errors.count, "error") %> prohibited this intervention from being saved:</h2>
-
       <ul>
       <% intervention.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,68 +10,53 @@
     </div>
   <% end %>
 
-        <fieldset>
-            <%# Customer Selection %>
-            <div id="customer">
-              <%= f.label :customer_id, "Please select a customer." %>
-              <%= f.collection_select :customer_id, Customer.order(:CompanyName), :id, :CompanyName %>
-            </div>
 
-            <%# Buildings Dropdown %>
-            <div class="row">
-                <div class="col-md-6" id="building-list">
-                    <%= f.label :building, "Please select the customer's building." %>
-                    <%= select_tag "building", options_from_collection_for_select(Building.all, "id", "id"), prompt: "--- Select ---", :required => true %>
-                    <hr />
-                </div>
-            </div>
+  <div>
+    <%= f.label :customer_id, "Please select customer." %>
+    <%= f.collection_select :customer_id, Customer.order(:CompanyName), :id, :CompanyName %>
+  </div>
 
-            <%# Batteries Dropdown %>
-            <div class="row">
-                <div class="col-md-6" id="battery-list">
+  <div id="Building">
+    <%= f.label :BuildingID, "Please Select Building" %>
+    <%= f.grouped_collection_select :BuildingID, Customer.order(:user_id), :buildings, :user_id, :id, :customer_id %>
+  </div>
 
-                    <label for="battery">Please select the building's battery.</label>
-                    <%= select_tag "battery", options_from_collection_for_select(Battery.all, "id", "id"), prompt: "--- Select ---", :required => true %>
-                    <hr />
-                </div>
-            </div>
+  <div id="Battery">
+    <%= f.label :BatteryID, "Please Select Battery" %>
+    <%= f.grouped_collection_select :BatteryID, Building.order(:addressBuilding), :batteries, :addressBuilding, :id, :building_id %>
+  </div>
 
-            <%# Column Dropdown %>
-            <div class="row">
-                <div class="col-md-6" id="column-list">
-                    <label for="column">Please select the battery's column.</label>
-                    <%= select_tag "column", options_from_collection_for_select(Column.all, "id", "id"), prompt: "None" %>
-                    <hr />
-                </div>
-            </div>
+  <div id="Column">
+    <%= f.label :ColumnID, "Please Select Column" %>
+    <%= f.grouped_collection_select :ColumnID, Battery.order(:building_id), :columns, :building_id, :id, :battery_id, :include_blank => "None" %>
+  </div>
 
-            <%# Elevator Selection %>
-            <div class="row">
-                <div class="col-md-6" id="elevator-list">
-                    <label for="elevator">Please select the column's elevator.</label>
-                    <%= select_tag "elevator", options_from_collection_for_select(Elevator.all, "id", "id"), prompt: "None" %>
-                    <hr />
-                </div>
-            </div>
+  <div id="Elevator">
+    <%= f.label :ElevatorID, "Please Select Elevator" %>
+    <%= f.grouped_collection_select :ElevatorID, Column.order(:battery_id), :elevators, :battery_id, :id, :column_id, include_blank: "None" %>
+  </div>
 
-            <%# Employee Selction %>
-            <div>
-              <%= f.label :employee_id, "Please select an employee." %>
-              <%= f.collection_select :employee_id, Employee.order(:title), :id, :title %>
-            </div>
-          <hr>  
+  <div id="Employee">
+    <%= f.label :EmployeeID %>
+    <%= f.collection_select :EmployeeID, Employee.order(:id), :id, :id, :value => "None" %>
+  </div>
 
-            <div class="row">
-                <div class="col-md-6" id="desc">
+  <div>
+    <%= f.label :Result %>
+    <%= f.text_field :Result, class:"textboxclass", :value => 'Incomplete' %>
+  </div>
 
-                    <label for="description">Please describe the intervention.</label>
-                    <%= text_field_tag :desc, "", class: 'form-control', :required => true%>
-                </div>
-            </div>
-        </fieldset>
+  <div>
+    <%= f.label :Report %>
+    <%= f.text_field :Report, class: "textboxclass" %>
+  </div>
 
-        <input class="btn btn-success btn-md" type="submit" value="Submit">
-        <hr />
-    </div>
-</form>
+  <div >
+    <%= f.label :Status %>
+    <%= f.text_field :Status, class:"textboxclass", :value => 'Pending' %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag "Submit", id:"submit", class:"btn btn-blue" %>
+  </div>
 <% end %>

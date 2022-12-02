@@ -1,26 +1,33 @@
 class InterventionsController < ApplicationController
+  require 'sendgrid-ruby'
+  require 'net/http'
+  require 'uri'
+  require 'json'
+  require 'rest-client'
+  require 'rubygems'
+  
   before_action :set_intervention, only: %i[ show edit update destroy ]
 
   # GET /interventions or /interventions.json
   def index
     @interventions = Intervention.all
-    render :index
   end
 
   # GET /interventions/1 or /interventions/1.json
   def show
-    @interventions = Intervention.find(params[:id])
-    render :show
   end
 
   # GET /interventions/new
   def new
     @intervention = Intervention.new
-    render :new
   end
 
   # GET /interventions/1/edit
   def edit
+  end
+
+  def intervention_params
+    params.require(:intervention).permit(:Author, :CustomerID, :BuildingID, :BatteryID, :ColumnID, :ElevatorID, :EmployeeID, :StartDate, :EndDate, :Result, :Report, :Status)
   end
 
   # POST /interventions or /interventions.json
@@ -36,9 +43,68 @@ class InterventionsController < ApplicationController
         format.json { render json: @intervention.errors, status: :unprocessable_entity }
       end
     end
-  end
 
-  # PATCH/PUT /interventions/1 or /interventions/1.json
+
+
+  # --------------------- FRESH DESK ---------------------- #
+
+    author = @intervention.Author
+    authorName = "Author first name and last name"
+    customer = Customer.find_by(@intervention.CustomerID)
+    customerName = customer.CompanyName
+    puts @intervention.CustomerID.class
+    puts @intervention.EmployeeID.class
+    # employeeName = ""
+    employee = Employee.find(@intervention.EmployeeID)
+
+    # employee = Employee.find_by(@intervention.EmployeeID)
+    employeeName = employee.firstName + " " + employee.lastName
+    # Your freshdesk domain
+    freshdesk_domain = 'rocketfoundation'
+    # It could be either your user name or api_key.
+    user_name_or_api_key = ENV['FRESHDESK_API_KEY']
+    # If you have given api_key, then it should be x. If you have given user name, it should be password
+    password_or_x = 'x'
+    #attachments should be of the form array of Hash with files mapped to the key 'resource'.
+    multipart_payload = JSON.generate({
+            status: 2,
+            priority: 1,
+            type: "Incident",
+            email: "support@rocketfoundation.freshdesk.com",
+            description:
+            "Requester: #{authorName}
+            <br><br>
+            Client: #{customerName}
+            <br><br>
+            Building ID: #{@intervention.BuildingID}
+            <br><br>
+            Battery ID: #{@intervention.BatteryID}
+            <br><br>
+            Column ID: #{@intervention.ColumnID}
+            <br><br>
+            Elevator ID: #{@intervention.ElevatorID}
+            <br><br>
+            Assigned Employee: #{employeeName}
+            <br><br>
+            Description: #{@intervention.Report}",
+            subject: "Intervention Building ID : #{@intervention.BuildingID}"
+    })
+
+    freshdesk_api_path = 'api/v2/tickets'
+    freshdesk_api_url  = "https://#{freshdesk_domain}.freshdesk.com/#{freshdesk_api_path}"
+    site = RestClient::Resource.new(freshdesk_api_url, user_name_or_api_key, password_or_x)
+    begin
+      response = site.post(multipart_payload, :content_type => 'application/json')
+      puts "response_code: #{response.code} \nLocation Header: #{response.headers[:Location]} \nresponse_body: #{response.body} \n"
+    rescue RestClient::Exception => exception
+      puts 'API Error: Your request is not successful. If you are not able to debug this error properly, mail us at support@freshdesk.com with the follwing X-Request-Id'
+      puts "X-Request-Id : #{exception.response.headers[:x_request_id]}"
+      puts "Response Code: #{exception.response.code} \nResponse Body: #{exception.response.body} \n"
+    end
+  end
+  
+   
+    # PATCH/PUT /interventions/1 or /interventions/1.json
   def update
     respond_to do |format|
       if @intervention.update(intervention_params)
@@ -50,6 +116,9 @@ class InterventionsController < ApplicationController
       end
     end
   end
+
+
+
 
   # DELETE /interventions/1 or /interventions/1.json
   def destroy
@@ -67,8 +136,5 @@ class InterventionsController < ApplicationController
       @intervention = Intervention.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
-    def intervention_params
-      params.fetch(:intervention, {})
-    end
+  
 end

@@ -8,13 +8,13 @@ class CreateInterventions < ActiveRecord::Migration[5.2]
       t.integer :ColumnID
       t.integer :ElevatorID
       t.integer :EmployeeID
-      t.string :StartDate
-      t.string :EndDate
+      t.datetime :StartDate
+      t.datetime :EndDate
       t.string :Result
-      t.string :Report
+      t.text :Report
       t.string :Status
-
       t.timestamps
     end
+    add_foreign_key :employees, :elevators, :columns, :batteries, :buildings, :customers, :users
   end
 end
