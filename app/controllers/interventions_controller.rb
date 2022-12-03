@@ -20,10 +20,16 @@ class InterventionsController < ApplicationController
   # GET /interventions/new
   def new
     @intervention = Intervention.new
+    @customer = Customer.all
+    @employee = Employee.all
   end
 
   # GET /interventions/1/edit
   def edit
+  end
+  
+  def set_intervention
+    @intervention = Intervention.find(params[:id])
   end
 
   def intervention_params
@@ -48,10 +54,10 @@ class InterventionsController < ApplicationController
 
   # --------------------- FRESH DESK ---------------------- #
 
-    author = @intervention.Author
-    authorName = "Author first name and last name"
-    customer = Customer.find_by(@intervention.CustomerID)
-    customerName = customer.CompanyName
+    author = Employee.find(@intervention.EmployeeID)
+    authorName = author.firstName + " " + author.lastName
+    # customer = Customer.find(@intervention.CustomerID)
+    # customerName = customer.CompanyName
     puts @intervention.CustomerID.class
     puts @intervention.EmployeeID.class
     # employeeName = ""
@@ -74,7 +80,7 @@ class InterventionsController < ApplicationController
             description:
             "Requester: #{authorName}
             <br><br>
-            Client: #{customerName}
+            Client: #{@intervention.CustomerID}
             <br><br>
             Building ID: #{@intervention.BuildingID}
             <br><br>
@@ -101,8 +107,18 @@ class InterventionsController < ApplicationController
       puts "X-Request-Id : #{exception.response.headers[:x_request_id]}"
       puts "Response Code: #{exception.response.code} \nResponse Body: #{exception.response.body} \n"
     end
-  end
   
+
+    def customerData
+      # this contains what has been selected in the first select box
+      @customers = params[:CompanyName]
+      # we get the data for selectbox 2
+      @data_for_select2 = MyModel.where(:some_id => @data_from_select1).all
+      # render an array in JSON containing arrays like:
+      # [[:id1, :name1], [:id2, :name2]]
+      render :json => @data_for_select2.map{|c| [c.id, c.name]}
+    end
+  end
    
     # PATCH/PUT /interventions/1 or /interventions/1.json
   def update
@@ -130,11 +146,7 @@ class InterventionsController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_intervention
-      @intervention = Intervention.find(params[:id])
-    end
+  
 
   
 end

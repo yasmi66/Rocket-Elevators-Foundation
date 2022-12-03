@@ -11,29 +11,29 @@
   <% end %>
 
 
-  <div>
+  <div id="Customer">
     <%= f.label :customer_id, "Please select customer." %>
-    <%= f.collection_select :customer_id, Customer.order(:CompanyName), :id, :CompanyName %>
+    <%= f.collection_select :customer_id, Customer.order(:CompanyName), :id, :CompanyName, include_blank: true %>
   </div>
 
   <div id="Building">
     <%= f.label :BuildingID, "Please Select Building" %>
-    <%= f.grouped_collection_select :BuildingID, Customer.order(:user_id), :buildings, :user_id, :id, :customer_id %>
+    <%= f.grouped_collection_select :BuildingID, Customer.order(:CompanyName), :buildings, :CompanyName, :id, :addressBuilding, include_blank: true %>
   </div>
 
   <div id="Battery">
     <%= f.label :BatteryID, "Please Select Battery" %>
-    <%= f.grouped_collection_select :BatteryID, Building.order(:addressBuilding), :batteries, :addressBuilding, :id, :building_id %>
+    <%= f.grouped_collection_select :BatteryID, Building.order(:addressBuilding), :batteries, :addressBuilding, :id, :id, include_blank: true %>
   </div>
 
   <div id="Column">
     <%= f.label :ColumnID, "Please Select Column" %>
-    <%= f.grouped_collection_select :ColumnID, Battery.order(:building_id), :columns, :building_id, :id, :battery_id, :include_blank => "None" %>
+    <%= f.grouped_collection_select :ColumnID, Battery.order(:building_id), :columns, :id, :id, :id, include_blank: true %>
   </div>
 
   <div id="Elevator">
     <%= f.label :ElevatorID, "Please Select Elevator" %>
-    <%= f.grouped_collection_select :ElevatorID, Column.order(:battery_id), :elevators, :battery_id, :id, :column_id, include_blank: "None" %>
+    <%= f.grouped_collection_select :ElevatorID, Column.order(:battery_id), :elevators, :id, :id, :id, include_blank: true %>
   </div>
 
   <div id="Employee">

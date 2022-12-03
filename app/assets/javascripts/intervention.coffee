@@ -1,7 +1,10 @@
 jQuery ->
+
+    
+
     building = $('#intervention_BuildingID').html()
-    $('#intervention_CustomerID').click ->
-        customer = $('#intervention_CustomerID :selected').text()
+    $('#customer_id').click ->
+        customer = $('#customer_id :selected').text()
         options1 = $(building).filter("optgroup[label='#{customer}']").html()
 
         if options1
@@ -29,8 +32,6 @@ jQuery ->
             $('#intervention_ColumnID').html(options3).val("Find a Column").prepend("<option value=" + '0' + ">" + 'None' + "</option>")
             $('#intervention_ColumnID').html(options3)
             $('#intervention_ColumnID').html(options3).val("None").prepend("<option value=" + '0' + ">" + 'None' + "</option>")
-
-
         else
             $('#intervention_ColumnID').empty()
 
@@ -44,6 +45,5 @@ jQuery ->
             $('#intervention_ElevatorID').html(options4).val("None").prepend("<option value=" + '0' + ">" + 'None' + "</option>")
             $('#intervention_ElevatorID').html(options4)
             $('#intervention_ElevatorID').html(options4).val("None").prepend("<option value=" + '0' + ">" + 'None' + "</option>")
-
         else
             $('#intervention_ElevatorID').empty()
