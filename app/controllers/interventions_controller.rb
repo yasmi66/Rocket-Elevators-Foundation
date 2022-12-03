@@ -1,7 +1,4 @@
 class InterventionsController < ApplicationController
-  require 'sendgrid-ruby'
-  require 'net/http'
-  require 'uri'
   require 'json'
   require 'rest-client'
   require 'rubygems'
@@ -54,17 +51,14 @@ class InterventionsController < ApplicationController
 
   # --------------------- FRESH DESK ---------------------- #
 
-    author = Employee.find(@intervention.EmployeeID)
-    authorName = author.firstName + " " + author.lastName
+    # author = Employee.find(@intervention.Author)
+    # authorName = author.firstName + " " + author.lastName
     # customer = Customer.find(@intervention.CustomerID)
     # customerName = customer.CompanyName
-    puts @intervention.CustomerID.class
-    puts @intervention.EmployeeID.class
-    # employeeName = ""
-    employee = Employee.find(@intervention.EmployeeID)
+    # employee = Employee.find(@intervention.EmployeeID)
+    # employeeName = employee.firstName + " " + employee.lastName
 
-    # employee = Employee.find_by(@intervention.EmployeeID)
-    employeeName = employee.firstName + " " + employee.lastName
+
     # Your freshdesk domain
     freshdesk_domain = 'rocketfoundation'
     # It could be either your user name or api_key.
@@ -78,7 +72,7 @@ class InterventionsController < ApplicationController
             type: "Incident",
             email: "support@rocketfoundation.freshdesk.com",
             description:
-            "Requester: #{authorName}
+            "Requester: #{@intervention.Author}
             <br><br>
             Client: #{@intervention.CustomerID}
             <br><br>
@@ -90,7 +84,7 @@ class InterventionsController < ApplicationController
             <br><br>
             Elevator ID: #{@intervention.ElevatorID}
             <br><br>
-            Assigned Employee: #{employeeName}
+            Assigned Employee: #{@intervention.EmployeeID}
             <br><br>
             Description: #{@intervention.Report}",
             subject: "Intervention Building ID : #{@intervention.BuildingID}"

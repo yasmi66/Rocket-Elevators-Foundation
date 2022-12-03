@@ -9,54 +9,116 @@
       </ul>
     </div>
   <% end %>
+<%# ----------------------------- intervention form ------------------------------- %>
+<br><br>
+    <div class="container">
+      <div class="row">
+        <div class="card">
+          <h4 class="card-header">STEP 1</h4>
+          <div class="card-body">
+            <div class="card-title">
+              <%= f.label :customer_id, "Find a customer" %>
+              <select class="custom-select mb-0 mr-sm-0 mb-sm-0"<%= f.select(:CustomerID) do %>>
+                <option selected>Find a Customer</option>
+                  <%= @customer.each do |c| %>
+                <option value="<%= c.id %>"><%= c.CompanyName %></option>
+                <% end %>
+              <% end %>
+              </select>
+            </div>
+        </div>
+      </div>
+      <%# STEP 2 ----------------------------------- %>
+      <div class="row ">
+        <div id="step2" class="card">
+          <h4 class="card-header">STEP 2</h4>
+          <div class="card-body">
+      <div class="field">
+        <%= f.label :building_id, "Find a building" %>
+        <div class="card-title">
+        <%= f.grouped_collection_select :BuildingID, Customer.order(:CompanyName), :buildings, :CompanyName, :id, :addressBuilding, include_blank: true %>
+      </div>
+     </div>
+     </div>
+     </div>
+     <%# STEP 3 ----------------------------------- %>
+     <div class="row ">
+        <div id="step3" class="card">
+          <h4 class="card-header">STEP 3</h4>
+          <div class="card-body">
+      <div class="field">
+        <%= f.label :battery_id, "Find a Battery" %>
+        <div class="card-title">
+        <%= f.grouped_collection_select :BatteryID, Building.order(:addressBuilding), :batteries, :addressBuilding, :id, :id, include_blank: true %>
+      </div>
+     </div>
+     </div>
+     </div>
+     <%# STEP 4 ----------------------------------- %>
+     <div class="row ">
+        <div id="step4" class="card">
+          <h4 class="card-header">STEP 4</h4>
+          <div class="card-body">
+      <div class="field">
+        <%= f.label :column_id, "Find a Column" %>
+        <div class="card-title">
+        <%= f.grouped_collection_select :ColumnID, Battery.order(:id), :columns, :id, :id, :id, include_blank: true %>
+      </div>
+     </div>
+     </div>
+     </div>
+     <%# STEP 5 ----------------------------------- %>
+     <div class="row ">
+        <div id="step5" class="card">
+          <h4 class="card-header">STEP 5</h4>
+          <div class="card-body">
+      <div class="field">
+        <%= f.label :elevator_id, "Find a Elevator" %>
+        <div class="card-title">
+        <%= f.grouped_collection_select :ElevatorID, Column.order(:id), :elevators, :id, :id, :id, include_blank: true %>
+      </div>
+     </div>
+     </div>
+     </div>
 
-
-  <div id="Customer">
-    <%= f.label :customer_id, "Please select customer." %>
-    <%= f.collection_select :customer_id, Customer.order(:CompanyName), :id, :CompanyName, include_blank: true %>
-  </div>
-
-  <div id="Building">
-    <%= f.label :BuildingID, "Please Select Building" %>
-    <%= f.grouped_collection_select :BuildingID, Customer.order(:CompanyName), :buildings, :CompanyName, :id, :addressBuilding, include_blank: true %>
-  </div>
-
-  <div id="Battery">
-    <%= f.label :BatteryID, "Please Select Battery" %>
-    <%= f.grouped_collection_select :BatteryID, Building.order(:addressBuilding), :batteries, :addressBuilding, :id, :id, include_blank: true %>
-  </div>
-
-  <div id="Column">
-    <%= f.label :ColumnID, "Please Select Column" %>
-    <%= f.grouped_collection_select :ColumnID, Battery.order(:building_id), :columns, :id, :id, :id, include_blank: true %>
-  </div>
-
-  <div id="Elevator">
-    <%= f.label :ElevatorID, "Please Select Elevator" %>
-    <%= f.grouped_collection_select :ElevatorID, Column.order(:battery_id), :elevators, :id, :id, :id, include_blank: true %>
-  </div>
-
-  <div id="Employee">
-    <%= f.label :EmployeeID %>
-    <%= f.collection_select :EmployeeID, Employee.order(:id), :id, :id, :value => "None" %>
-  </div>
-
-  <div>
-    <%= f.label :Result %>
-    <%= f.text_field :Result, class:"textboxclass", :value => 'Incomplete' %>
-  </div>
-
-  <div>
-    <%= f.label :Report %>
-    <%= f.text_field :Report, class: "textboxclass" %>
-  </div>
-
-  <div >
-    <%= f.label :Status %>
-    <%= f.text_field :Status, class:"textboxclass", :value => 'Pending' %>
-  </div>
-
-  <div class="actions">
-    <%= submit_tag "Submit", id:"submit", class:"btn btn-blue" %>
-  </div>
+     <%# EMPLOYEE ----------------------------------- %>
+    <div class="container">
+      <div class="row">
+        <div class="card" id="step6">
+          <h4 class="card-header">Employee</h4>
+          <div class="card-body">
+            <div class="card-title">
+              <%= f.label :employee_id, "Select an employee" %>
+              <select class="custom-select mb-0 mr-sm-0 mb-sm-0"<%= f.select(:EmployeeID) do %>>
+                <option selected>None</option>
+                  <%= @employee.each do |i| %>
+                <option value="<%= i.id %>"><%= i.firstName %> <%= i.lastName %></option>
+                <% end %>
+              <% end %>
+              </select>
+            </div>
+        </div>
+      </div>
+       <%# DESCRIPTION ----------------------------------- %>
+      <div class="row">
+        <div id="step7" class="card">
+          <h4 class="card-header">Description</h4>
+          <div class="card-body">
+      <div class="row">
+                <div class="col-md-12">
+                  <label for="Report"></label>
+                  <textarea required maxlength="10000" rows="8" class="form-control" name="Report" id="Report"></textarea>
+                </div>
+            </div>
+      </div>
+        </div>
+      </div>
+   <%= f.label :Author, "Ticket author " %>
+      <div class="form-floating">
+      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value= "<%= current_user.id %>" <%= f.text_area :Author %>>
+      </div>
+<div class="actions">
+<%= f.submit "CREATE INTERVENTION TICKET"%>
 <% end %>
+</div>
+<br><br><br><br>
