@@ -51,12 +51,12 @@ class InterventionsController < ApplicationController
 
   # --------------------- FRESH DESK ---------------------- #
 
-    # author = Employee.find(@intervention.Author)
-    # authorName = author.firstName + " " + author.lastName
-    # customer = Customer.find(@intervention.CustomerID)
-    # customerName = customer.CompanyName
-    # employee = Employee.find(@intervention.EmployeeID)
-    # employeeName = employee.firstName + " " + employee.lastName
+    author = User.find(@intervention.Author)
+    authorName = author.email
+    customer = Customer.find(@intervention.CustomerID)
+    customerName = customer.CompanyName
+    employee = Employee.find(@intervention.EmployeeID)
+    employeeName = employee.firstName + " " + employee.lastName
 
 
     # Your freshdesk domain
@@ -72,9 +72,9 @@ class InterventionsController < ApplicationController
             type: "Incident",
             email: "support@rocketfoundation.freshdesk.com",
             description:
-            "Requester: #{@intervention.Author}
+            "Requester: #{authorName}
             <br><br>
-            Client: #{@intervention.CustomerID}
+            Client: #{customerName}
             <br><br>
             Building ID: #{@intervention.BuildingID}
             <br><br>
@@ -84,7 +84,7 @@ class InterventionsController < ApplicationController
             <br><br>
             Elevator ID: #{@intervention.ElevatorID}
             <br><br>
-            Assigned Employee: #{@intervention.EmployeeID}
+            Assigned Employee: #{employeeName}
             <br><br>
             Description: #{@intervention.Report}",
             subject: "Intervention Building ID : #{@intervention.BuildingID}"

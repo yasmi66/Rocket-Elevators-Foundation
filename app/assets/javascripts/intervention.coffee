@@ -3,18 +3,20 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 jQuery ->
+
     $('#step2').parent().hide()
     $('#step3').parent().hide()
     $('#step4').parent().hide()
     $('#step5').parent().hide()
+    
     building = $('#intervention_BuildingID').html()
-    # customer = $('#intervention_customer_id').html()
     $('#intervention_CustomerID').change ->
         customer = $('#intervention_CustomerID :selected').text()
+        # add escaped_customer var to accept/support special characters
         escaped_customer = customer.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1')
         options = $(building).filter("optgroup[label='#{escaped_customer}']").html()
         if options
-            $('#intervention_BuildingID').html(options).val("Find a Building").prepend("<option value=" + '0' + ">" + 'Find a Building' + "</option>")
+            $('#intervention_BuildingID').html(options).val("Find a Building").prepend("<option value=" + '0' + ">" + 'Select a Building' + "</option>")
             $('#step2').parent().show()
         else
             $('#intervention_BuildingID').empty()
@@ -23,10 +25,11 @@ jQuery ->
     battery = $('#intervention_BatteryID').html()
     $('#intervention_BuildingID').change ->
         customerBattery = $('#intervention_BuildingID :selected').text()
+        # add escaped_battery var to accept/support special characters
         escaped_battery = customerBattery.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1')
         optionsBattery = $(battery).filter("optgroup[label='#{escaped_battery}']").html()
         if optionsBattery
-            $('#intervention_BatteryID').html(optionsBattery).val("Find a Battery").prepend("<option value=" + '0' + ">" + 'Find a Battery' + "</option>")
+            $('#intervention_BatteryID').html(optionsBattery).val("Find a Battery").prepend("<option value=" + '0' + ">" + 'Select a Battery' + "</option>")
             $('#step3').parent().show()
         else
             $('#intervention_BatteryID').empty()
@@ -35,6 +38,7 @@ jQuery ->
     column = $('#intervention_ColumnID').html()
     $('#intervention_BatteryID').change ->
         batteryColumn = $('#intervention_BatteryID :selected').text()
+        # add escaped_column var to accept/support special characters
         escaped_column = batteryColumn.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1')
         optionsColumn = $(column).filter("optgroup[label='#{escaped_column}']").html()
         if optionsColumn
@@ -47,6 +51,7 @@ jQuery ->
     elevator = $('#intervention_ElevatorID').html()
     $('#intervention_ColumnID').change ->
         columnElevator = $('#intervention_ColumnID :selected').text()
+        # add escaped_elevator var to accept/support special characters
         escaped_elevator = columnElevator.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1')
         optionsElevator = $(elevator).filter("optgroup[label='#{escaped_elevator}']").html()
         if optionsElevator
