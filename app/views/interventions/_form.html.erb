@@ -130,15 +130,12 @@
                 </div>
           </div>
       </div>
-      
 
-
-
-      </div>
-      <%= f.label :Author, "Ticket author " %>
-        <div class="form-floating">
-        <input type="text" readonly class="form-control-plaintext" id="staticEmail" value= "<%= current_user.id %>" <%= f.text_area :Author %> >
-      </div>
+                <div class="field">
+                  <% f.label :Author %>
+                  <%= f.hidden_field :Author, class:"textboxclass", :value => current_user.id %>
+                </div>
+          </div>
       </div>
 
 <div class="actions">
