@@ -38,7 +38,7 @@
             <div class="field">
               <%= f.label :building_id, "Select a building" %>
             <div class="card-title">
-            <%= f.grouped_collection_select :BuildingID, Customer.order(:CompanyName), :buildings, :CompanyName, :id, :addressBuilding, include_blank: true %>
+            <%= f.grouped_collection_select :BuildingID, Customer.order(:CompanyName), :buildings, :CompanyName, :id, :addressBuilding %>
           </div>
         </div>
      </div>
@@ -50,7 +50,7 @@
             <div class="field">
               <%= f.label :battery_id, "Select a Battery" %>
             <div class="card-title">
-            <%= f.grouped_collection_select :BatteryID, Building.order(:addressBuilding), :batteries, :addressBuilding, :id, :id, include_blank: true %>
+            <%= f.grouped_collection_select :BatteryID, Building.order(:addressBuilding), :batteries, :addressBuilding, :id, :id %>
           </div>
         </div>
       </div>
