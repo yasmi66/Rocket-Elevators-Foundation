@@ -8,7 +8,7 @@ jQuery ->
     $('#step3').parent().hide()
     $('#step4').parent().hide()
     $('#step5').parent().hide()
-    
+
     building = $('#intervention_BuildingID').html()
     $('#intervention_CustomerID').change ->
         customer = $('#intervention_CustomerID :selected').text()
@@ -42,7 +42,7 @@ jQuery ->
         escaped_column = batteryColumn.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1')
         optionsColumn = $(column).filter("optgroup[label='#{escaped_column}']").html()
         if optionsColumn
-            $('#intervention_ColumnID').html(optionsColumn).val("None").prepend("<option value=" + '0' + ">" + 'None' + "</option>")
+            $('#intervention_ColumnID').html(optionsColumn).val("None").prepend("<option value=" + ">" + 'None' + "</option>")
             $('#step4').parent().show()
         else
             $('#intervention_ColumnID').empty()
@@ -55,7 +55,7 @@ jQuery ->
         escaped_elevator = columnElevator.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1')
         optionsElevator = $(elevator).filter("optgroup[label='#{escaped_elevator}']").html()
         if optionsElevator
-            $('#intervention_ElevatorID').html(optionsElevator).val("None").prepend("<option value=" + '0' + ">" + 'None' + "</option>")
+            $('#intervention_ElevatorID').html(optionsElevator).val("None").prepend("<option value=" + ">" + 'None' + "</option>")
             $('#step5').parent().show()
         else
             $('#intervention_ElevatorID').empty()

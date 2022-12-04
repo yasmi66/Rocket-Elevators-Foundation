@@ -72,14 +72,14 @@
      <div class="row">
         <div id="step5" class="card">
           <h4 class="card-header">STEP 5</h4>
-          <div class="card-body">
-          <div class="field">
-            <%= f.label :elevator_id, "Select a Elevator" %>
-        <div class="card-title">
-          <%= f.grouped_collection_select :ElevatorID, Column.order(:id), :elevators, :id, :id, :id, include_blank: true %>
+            <div class="card-body">
+            <div class="field">
+              <%= f.label :elevator_id, "Select a Elevator" %>
+            <div class="card-title">
+            <%= f.grouped_collection_select :ElevatorID, Column.order(:id), :elevators, :id, :id, :id, include_blank: true %>
+          </div>
+        </div>
       </div>
-     </div>
-     </div>
      </div>
 </center>
       <%# EMPLOYEE ----------------------------------- %>
