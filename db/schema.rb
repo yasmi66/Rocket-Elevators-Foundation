@@ -142,11 +142,11 @@ ActiveRecord::Schema.define(version: 2022_11_21_121432) do
     t.integer "CustomerID"
     t.integer "BuildingID"
     t.integer "BatteryID"
-    t.integer "ColumnID", null: false
-    t.integer "ElevatorID", null: false
-    t.integer "EmployeeID", null: false
-    t.datetime "StartDate", null: false
-    t.datetime "EndDate", null: false
+    t.integer "ColumnID"
+    t.integer "ElevatorID"
+    t.integer "EmployeeID"
+    t.datetime "StartDate"
+    t.datetime "EndDate"
     t.string "Result"
     t.string "Report"
     t.string "Status"

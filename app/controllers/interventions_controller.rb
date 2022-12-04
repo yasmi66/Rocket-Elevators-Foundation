@@ -55,8 +55,8 @@ class InterventionsController < ApplicationController
     authorName = author.email
     customer = Customer.find(@intervention.CustomerID)
     customerName = customer.CompanyName
-    employee = Employee.find(@intervention.EmployeeID)
-    employeeName = employee.firstName + " " + employee.lastName
+    # employee = Employee.find(@intervention.EmployeeID)
+    # employeeName = employee.firstName + " " + employee.lastName
 
 
     # Your freshdesk domain
@@ -84,7 +84,7 @@ class InterventionsController < ApplicationController
             <br><br>
             Elevator ID: #{@intervention.ElevatorID}
             <br><br>
-            Assigned Employee: #{employeeName}
+            Assigned Employee: #{@intervention.EmployeeID}
             <br><br>
             Description: #{@intervention.Report}",
             subject: "Intervention Building ID : #{@intervention.BuildingID}"

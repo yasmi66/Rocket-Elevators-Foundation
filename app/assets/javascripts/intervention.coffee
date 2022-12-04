@@ -60,3 +60,4 @@ jQuery ->
         else
             $('#intervention_ElevatorID').empty()
             $('#step5').parent().hide()
+        
