@@ -12,6 +12,7 @@
 <%# ----------------------------- INTERVENTION FORM ------------------------------- %>
 <%# STEP 1: CUSTOMER SELECTION ----------------------------------------- %>
 <br><br>
+<center>
     <div class="container">
       <div class="row">
         <div class="card">
@@ -30,47 +31,45 @@
           </div>
         </div>
       <%# STEP 2: BUILDING SELECTION ----------------------------------- %>
-      <div class="row ">
+      <div class="row">
         <div id="step2" class="card">
           <h4 class="card-header">STEP 2</h4>
-          <div class="card-body">
-          <div class="field">
-            <%= f.label :building_id, "Select a building" %>
-          <div class="card-title">
-          <%= f.grouped_collection_select :BuildingID, Customer.order(:CompanyName), :buildings, :CompanyName, :id, :addressBuilding, include_blank: true %>
+            <div class="card-body">
+            <div class="field">
+              <%= f.label :building_id, "Select a building" %>
+            <div class="card-title">
+            <%= f.grouped_collection_select :BuildingID, Customer.order(:CompanyName), :buildings, :CompanyName, :id, :addressBuilding, include_blank: true %>
+          </div>
         </div>
-      </div>
-     </div>
      </div>
      <%# STEP 3: BATTERY SELECTION ----------------------------------- %>
-     <div class="row ">
+      <div class="row">
         <div id="step3" class="card">
           <h4 class="card-header">STEP 3</h4>
-          <div class="card-body">
-          <div class="field">
-            <%= f.label :battery_id, "Select a Battery" %>
-        <div class="card-title">
-          <%= f.grouped_collection_select :BatteryID, Building.order(:addressBuilding), :batteries, :addressBuilding, :id, :id, include_blank: true %>
+            <div class="card-body">
+            <div class="field">
+              <%= f.label :battery_id, "Select a Battery" %>
+            <div class="card-title">
+            <%= f.grouped_collection_select :BatteryID, Building.order(:addressBuilding), :batteries, :addressBuilding, :id, :id, include_blank: true %>
+          </div>
         </div>
       </div>
       </div>
-      </div>
-    <br><br>
      <%# STEP 4: COLUMN SELECTION ----------------------------------- %>
      <div class="row ">
         <div id="step4" class="card">
           <h4 class="card-header">STEP 4</h4>
-          <div class="card-body">
-          <div class="field">
-            <%= f.label :column_id, "Select a Column" %>
-        <div class="card-title">
-          <%= f.grouped_collection_select :ColumnID, Battery.order(:id), :columns, :id, :id, :id, include_blank: true %>
+            <div class="card-body">
+            <div class="field">
+              <%= f.label :column_id, "Select a Column" %>
+            <div class="card-title">
+            <%= f.grouped_collection_select :ColumnID, Battery.order(:id), :columns, :id, :id, :id, include_blank: true %>
+          </div>
+        </div>
       </div>
      </div>
-     </div>
-     </div>
      <%# STEP 5: ELEVATOR SELECTION ----------------------------------- %>
-     <div class="row ">
+     <div class="row">
         <div id="step5" class="card">
           <h4 class="card-header">STEP 5</h4>
           <div class="card-body">
@@ -82,7 +81,7 @@
      </div>
      </div>
      </div>
-
+</center>
       <%# EMPLOYEE ----------------------------------- %>
         <div class="row">
           <div class="card" id="step6">
@@ -116,21 +115,18 @@
       </div>
       </div>
       </div>
-     
                 <div class="field">
                   <% f.label :Result %>
                   <%= f.hidden_field :Result, class:"textboxclass", :value => "Incomplete" %>
                 </div>
           </div>
       </div>
-      
                 <div class="field">
                   <% f.label :Status %>
                   <%= f.hidden_field :Status, class:"textboxclass", :value => "Pending" %>
                 </div>
           </div>
       </div>
-
                 <div class="field">
                   <% f.label :Author %>
                   <%= f.hidden_field :Author, class:"textboxclass", :value => current_user.id %>
@@ -138,8 +134,8 @@
           </div>
       </div>
 
-<div class="actions">
+<center><div class="actions">
 <%= f.submit "CREATE INTERVENTION TICKET"%>
 <% end %>
-</div>
+</div></center>
 <br><br><br><br>
