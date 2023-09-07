@@ -1,4 +1,14 @@
-# Rocket_Elevators_Information_System
+## Rocket_Elevators_Information_System
+HTML 5
+CSS 3
+Javascript
+Bootstrap 4
+Web Application with Ruby on Rails and Ubuntu 22.2
+Transactional Relational Database: mySQL
+Decision Support Database
+Connection and operation of Third-Parties APIs: Slack, Twilio, FreshDesk, Sendgrid, Amazon Polly, Google Maps, Dropbox
+REST API
+GraphQL API
 
 # Description WEEK 8 - CONSOLIDATION WEEK
 During this week, a new Interventions table was added to the SQL Database and a Intervention Request Form was added to the Rocket Elevators Website.
